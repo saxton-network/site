@@ -20,6 +20,11 @@ REPO_LINK = re.compile(r"https://github\.com/saxton-network/([A-Za-z0-9._-]+)")
 # Elements that run code, load resources, or embed content.
 FORBIDDEN_TAGS = {"script", "link", "img", "iframe", "frame", "frameset", "object", "embed", "audio",
                   "video", "source", "track", "picture", "svg", "math", "base", "form", "input", "button", "applet"}
+# Characters folded before looking for repository names in decoded text: hyphen and dot look-alikes,
+# and invisible characters that could split a name.
+FOLD = str.maketrans({**{c: "-" for c in "\u2010\u2011\u2012\u2013\u2014\u2015\u2212\ufe58\ufe63\uff0d"},
+                      **{c: "." for c in "\u2024\ufe52\uff0e"},
+                      **{c: "" for c in "\u00ad\u200b\u200c\u200d\u2060\ufeff"}})
 # Attributes that can fetch a resource.
 URL_ATTRS = {"src", "srcset", "data", "poster", "background", "action", "formaction", "manifest", "ping", "cite"}
 
@@ -31,6 +36,7 @@ class PageScanner(HTMLParser):
         self.links: list[str] = []
         self.styles: list[str] = []
         self.anchors: list[tuple[str, str]] = []  # (href, link text)
+        self.decoded: list[str] = []  # decoded text and non-href attribute values
         self._in_style = False
         self._anchor: list[str] | None = None
         self._anchor_href = ""
@@ -56,6 +62,7 @@ class PageScanner(HTMLParser):
             self._anchor = None
 
     def handle_data(self, data: str) -> None:
+        self.decoded.append(data)
         if self._in_style:
             self.styles.append(data)
         if self._anchor is not None:
@@ -66,6 +73,8 @@ class PageScanner(HTMLParser):
             self.problems.append(f"forbidden element <{tag}>")
         for name, value in attrs:
             value = value or ""
+            if name != "href":
+                self.decoded.append(value)
             if name.startswith("on"):
                 self.problems.append(f"event-handler attribute {name} on <{tag}>")
             if name in URL_ATTRS:
@@ -134,6 +143,11 @@ def main() -> int:
     for needle in ("saxton-network", "github.com"):
         if raw.count(needle) != len(scanner.links):
             problems.append(f"{needle!r} appears outside the repository links")
+    # The same names, as a browser would show them: entities decoded and look-alike characters folded.
+    shown = " ".join(scanner.decoded).lower().translate(FOLD)
+    for needle in ("saxton-network", "github.com"):
+        if needle in shown:
+            problems.append(f"{needle!r} appears in page text or attributes outside the repository links")
 
     if problems:
         for problem in problems:
