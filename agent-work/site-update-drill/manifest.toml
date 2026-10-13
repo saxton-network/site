@@ -22,7 +22,7 @@ C = "blocked"
 P = "complete"
 R = "complete"
 J = "failed"
-V = "blocked"
+V = "complete"
 K = "blocked"
 
 [tasks.A]

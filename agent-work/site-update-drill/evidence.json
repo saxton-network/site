@@ -338,6 +338,54 @@
         "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
       },
       "runtimeAcceptance": "FAIL"
+    },
+    {
+      "taskId": "V",
+      "attempt": 1,
+      "role": "other",
+      "model": null,
+      "branch": "pilot/site-update-drill-records",
+      "worktree": null,
+      "baseSha": "8f3c310876166dc0cb2864dff3646e18830b1758",
+      "candidateSha": null,
+      "deploymentSourceSha": "8f3c310876166dc0cb2864dff3646e18830b1758",
+      "taskStatus": "complete",
+      "readinessVerdict": null,
+      "startedAt": "2026-10-13T14:51:09Z",
+      "completedAt": "2026-10-13T14:51:49Z",
+      "changedPaths": [],
+      "reviewFindingIds": [],
+      "approvalReference": "agent-work/site-update-drill/results/J-approval.md",
+      "validation": [
+        {
+          "checkId": "rollback-acceptance",
+          "inputFingerprint": "d2a53d23b197f1bc5a80e8c95c9970c6508c766798b50df0f4427d6863542726",
+          "validatorSha256": null,
+          "exitCode": 0,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-update-drill/results/V.md"
+        },
+        {
+          "checkId": "drill-verdict",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": 0,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-update-drill/results/V.md"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "agent-work/site-update-drill/results/V.md",
+          "sha256": "2fb7caac066d37b5862c870763339990bc12b96167d4d7a1c1edf143257c1e03"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
+      }
     }
   ]
 }
