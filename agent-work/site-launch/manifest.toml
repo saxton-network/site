@@ -1,0 +1,91 @@
+workflow_version = 3
+phase = "site-launch"
+title = "Launch the Saxton Network landing page (v1)"
+phase_baseline = "3da96f0555ea6484ab7630654af0fc1f6ec90ceb"
+plan = "agent-work/site-launch/PLAN.md"
+contract = "agent-work/site-launch/CONTRACT.md"
+
+[workflow]
+mode = "coordinator"
+plan_status = "approved"
+coordinator = "agent-work/COORDINATOR.md"
+auto_dispatch = true
+max_parallel_subagents = 1
+evidence_manifest = "agent-work/site-launch/evidence.json"
+human_gate_tasks = ["J"]
+terminal_task = "K"
+
+[status]
+A = "pending"
+B = "blocked"
+C = "conditional"
+P = "blocked"
+R = "blocked"
+J = "blocked"
+K = "blocked"
+
+[tasks.A]
+kind = "implementation"
+name = "Build the v1 page, the site check and the deploy workflow"
+file = "agent-work/site-launch/A-implementation.md"
+branch = "pilot/site-launch-impl"
+depends_on = []
+
+[tasks.B]
+kind = "independent_review"
+name = "Review the candidate against the threat model and the site rules"
+file = "agent-work/site-launch/B-review.md"
+branch = "pilot/site-launch-records"
+depends_on = ["A"]
+required_status = { A = "complete" }
+rerun_after = "C"
+
+[tasks.C]
+kind = "repair"
+name = "Repair review findings"
+file = "agent-work/site-launch/C-repair.md"
+branch = "pilot/site-launch-fix"
+depends_on = ["B"]
+required_status = { B = "findings" }
+conditional = "review_findings_exist"
+
+[tasks.P]
+kind = "authority_promotion"
+name = "Fast-forward main to the exact reviewed commit"
+file = "agent-work/site-launch/P-promotion.md"
+branch = "main"
+depends_on = ["B"]
+required_status = { B = "passed" }
+
+[tasks.R]
+kind = "release_readiness"
+name = "Prove readiness and freeze the batch"
+file = "agent-work/site-launch/R-readiness.md"
+branch = "pilot/site-launch-records"
+depends_on = ["B", "P"]
+required_status = { B = "passed" }
+
+[tasks.J]
+kind = "live_deployment"
+name = "Deploy v1 after owner approval and accept it at runtime"
+file = "agent-work/site-launch/J-live.md"
+branch = "pilot/site-launch-records"
+depends_on = ["R"]
+human_gate = "live-change-approval"
+
+[tasks.K]
+kind = "final_reconciliation"
+name = "Reconcile refs and live state, and land the records"
+file = "agent-work/site-launch/K-reconcile.md"
+branch = "pilot/site-launch-records"
+depends_on = ["J"]
+
+[deployment]
+implementation_tasks = ["A"]
+review_task = "B"
+authority_task = "P"
+authority_remote = "origin"
+authority_ref = "refs/heads/main"
+readiness_task = "R"
+live_task = "J"
+final_reconciliation_task = "K"
