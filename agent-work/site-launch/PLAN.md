@@ -201,3 +201,5 @@ The preview states:
 
 - **Repository creation.** The GitHub connection was refused permission to create repositories in the organisation, so the owner created `saxton-network/site`. GitHub added a starter commit with a README. The owner chose to keep it, so `phase_baseline` history starts from that commit, not a coordinator root commit.
 - **Commit metadata.** The owner confirmed that their own name and contact details appearing in commit metadata are fine, because they are already public. The repository's content rules are unchanged: no file, page or record names private repositories, hosts, people or contact details. `main` still moves only by fast-forward to reviewed commits, which is how Workflow pins the deployed source.
+
+- **Deploy guard tightened.** Repair C-1 (finding F3) made `deploy.yml` accept only commits on `main`'s first-parent history, which is stricter than "an ancestor of, or equal to, `origin/main`" above. The rollback to v1 in `site-update-drill` still passes: v1 stays on `main`'s first-parent line.

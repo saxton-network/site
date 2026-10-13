@@ -25,7 +25,7 @@
 
 ## Evidence
 
-A `passed` record carries `deploymentSourceSha` equal to A's `candidateSha`.
+A `passed` record carries `deploymentSourceSha` equal to the latest candidate: A's `candidateSha`, or the latest repair (C) record's `candidateSha` after a repair.
 
 ## Result
 

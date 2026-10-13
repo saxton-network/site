@@ -18,9 +18,9 @@
 4. **`scripts/validate.sh`.** Make a missing `check-site.py` a failure (bootstrap review F3).
 5. **`.github/workflows/deploy.yml`,** as `PLAN.md` specifies:
    - trigger `workflow_dispatch`, with a `sha` input passed through `env`;
-   - checks that `sha` is 40 lowercase hex characters and an ancestor of, or equal to, `origin/main` (`fetch-depth: 0`);
+   - checks that `sha` is 40 lowercase hex characters and on `origin/main`'s first-parent history (`fetch-depth: 0`); this was tightened from "ancestor of or equal to" by repair C-1 (F3);
    - checks out `sha`, requires `site/` to hold only `index.html`, and runs the site check;
-   - echoes `HEAD` and the SHA-256 of `site/index.html` to the log;
+   - echoes `HEAD` and the SHA-256 of `site/index.html` to the job log and the run summary;
    - `run-name: Deploy <sha>`;
    - permissions `contents: read`, `pages: write`, `id-token: write`;
    - `environment: github-pages`;
