@@ -21,7 +21,7 @@ B = "passed"
 C = "complete"
 P = "complete"
 R = "complete"
-J = "in_progress"
+J = "complete"
 V = "blocked"
 K = "blocked"
 
