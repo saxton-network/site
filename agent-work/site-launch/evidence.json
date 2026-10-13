@@ -205,6 +205,37 @@
         "path": "scripts/agent-task.py",
         "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
       }
+    },
+    {
+      "taskId": "B",
+      "attempt": 3,
+      "role": "independent_review",
+      "model": null,
+      "branch": "pilot/site-launch-records",
+      "worktree": null,
+      "baseSha": "3da96f0555ea6484ab7630654af0fc1f6ec90ceb",
+      "candidateSha": "68660011c9e8394d5d5626c030d2ae6e44c79ba1",
+      "deploymentSourceSha": "68660011c9e8394d5d5626c030d2ae6e44c79ba1",
+      "taskStatus": "findings",
+      "readinessVerdict": null,
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [],
+      "reviewFindingIds": [
+        "F7"
+      ],
+      "approvalReference": null,
+      "validation": [],
+      "evidence": [
+        {
+          "path": "agent-work/site-launch/results/B-3.md",
+          "sha256": "c356e26e8d7ec3bbd17ffdafc60a7bac619e57a7b231ff15c780f8a2e95792f9"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
+      }
     }
   ]
 }
