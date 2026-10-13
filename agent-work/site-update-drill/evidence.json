@@ -263,6 +263,36 @@
         "path": "scripts/agent-task.py",
         "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
       }
+    },
+    {
+      "taskId": "J",
+      "attempt": 1,
+      "role": "live_deployment",
+      "model": null,
+      "branch": "pilot/site-update-drill-records",
+      "worktree": null,
+      "baseSha": "8f3c310876166dc0cb2864dff3646e18830b1758",
+      "candidateSha": "8f3c310876166dc0cb2864dff3646e18830b1758",
+      "deploymentSourceSha": "8f3c310876166dc0cb2864dff3646e18830b1758",
+      "taskStatus": "in_progress",
+      "readinessVerdict": null,
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [],
+      "reviewFindingIds": [],
+      "approvalReference": "agent-work/site-update-drill/results/J-approval.md",
+      "frozenBatchFingerprint": "d2a53d23b197f1bc5a80e8c95c9970c6508c766798b50df0f4427d6863542726",
+      "validation": [],
+      "evidence": [
+        {
+          "path": "agent-work/site-update-drill/results/J-approval.md",
+          "sha256": "2d6a7c83f0f244f45e274b7aa33f5c73264c77330b92bba52d7b5d0fdc3b378e"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
+      }
     }
   ]
 }
