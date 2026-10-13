@@ -42,6 +42,37 @@
         "path": "scripts/agent-task.py",
         "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
       }
+    },
+    {
+      "taskId": "B",
+      "attempt": 1,
+      "role": "independent_review",
+      "model": null,
+      "branch": "pilot/site-update-drill-records",
+      "worktree": null,
+      "baseSha": "d28afc431f80347c15f32483fbe936ccedce9727",
+      "candidateSha": "8f3c310876166dc0cb2864dff3646e18830b1758",
+      "deploymentSourceSha": "8f3c310876166dc0cb2864dff3646e18830b1758",
+      "taskStatus": "passed",
+      "readinessVerdict": null,
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [],
+      "reviewFindingIds": [
+        "D1"
+      ],
+      "approvalReference": null,
+      "validation": [],
+      "evidence": [
+        {
+          "path": "agent-work/site-update-drill/results/B-1.md",
+          "sha256": "2834ecbcc9b13453c67d2575acb45c81457c18d9217aa1ba6bb34b746fd996d8"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
+      }
     }
   ]
 }
