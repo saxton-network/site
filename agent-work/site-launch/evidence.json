@@ -80,6 +80,53 @@
         "path": "scripts/agent-task.py",
         "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
       }
+    },
+    {
+      "taskId": "C",
+      "attempt": 1,
+      "role": "repair",
+      "model": null,
+      "branch": "pilot/site-launch-fix",
+      "worktree": null,
+      "baseSha": "082505507cc98965972aceaef278a9e84f267b3b",
+      "candidateSha": "4ab14982be8e140bff75ad5a774affa3d9db680c",
+      "deploymentSourceSha": null,
+      "taskStatus": "complete",
+      "readinessVerdict": null,
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [
+        ".github/workflows/deploy.yml",
+        "scripts/check-site.py"
+      ],
+      "reviewFindingIds": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "approvalReference": null,
+      "validation": [
+        {
+          "checkId": "validate-ci",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": null,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-launch/results/C-1.md"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "agent-work/site-launch/results/C-1.md",
+          "sha256": "fdf18841afc5c04e858277b4a4113afc44efe08688a27cfb45029152e41f8fad"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
+      }
     }
   ]
 }
