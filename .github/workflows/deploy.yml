@@ -1,0 +1,82 @@
+name: Deploy site
+
+# Manual only: every dispatch is a live change that needs the owner's approval of that exact batch.
+on:
+  workflow_dispatch:
+    inputs:
+      sha:
+        description: "Full 40-character commit SHA on main to deploy"
+        required: true
+        type: string
+
+run-name: Deploy ${{ inputs.sha }}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Require an exact commit on main
+        env:
+          SHA: ${{ inputs.sha }}
+        run: |
+          if [[ ! "$SHA" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "Input sha must be 40 lowercase hex characters" >&2
+            exit 1
+          fi
+          git fetch --no-tags origin +refs/heads/main:refs/remotes/origin/main
+          if ! git merge-base --is-ancestor "$SHA" origin/main; then
+            echo "Commit $SHA is not on main" >&2
+            exit 1
+          fi
+          git checkout --detach "$SHA"
+
+      - uses: actions/setup-python@v6.0.0
+        with:
+          python-version: "3.12"
+
+      - name: Check the site at that commit
+        run: |
+          entries="$(ls -A site)"
+          if [[ "$entries" != "index.html" ]]; then
+            echo "site/ must contain only index.html, found: $entries" >&2
+            exit 1
+          fi
+          python3 scripts/check-site.py
+
+      - name: Record what is deployed
+        run: |
+          head="$(git rev-parse HEAD)"
+          page="$(sha256sum site/index.html | cut -d' ' -f1)"
+          echo "DEPLOY HEAD=$head"
+          echo "DEPLOY INDEX_SHA256=$page"
+          {
+            echo "HEAD: \`$head\`"
+            echo "site/index.html SHA-256: \`$page\`"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/configure-pages@v6.0.0
+
+      - uses: actions/upload-pages-artifact@v5.0.0
+        with:
+          path: site
+
+      - id: deployment
+        uses: actions/deploy-pages@v5.0.1
