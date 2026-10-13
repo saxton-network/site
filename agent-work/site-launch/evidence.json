@@ -1,5 +1,51 @@
 {
   "workflowVersion": 3,
   "workflowId": "site-launch",
-  "records": []
+  "records": [
+    {
+      "taskId": "A",
+      "attempt": 1,
+      "role": "implementation",
+      "model": null,
+      "branch": "pilot/site-launch-impl",
+      "worktree": null,
+      "baseSha": "3da96f0555ea6484ab7630654af0fc1f6ec90ceb",
+      "candidateSha": "082505507cc98965972aceaef278a9e84f267b3b",
+      "deploymentSourceSha": null,
+      "taskStatus": "complete",
+      "readinessVerdict": null,
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [
+        ".github/workflows/deploy.yml",
+        "scripts/check-site.py",
+        "scripts/projects.txt",
+        "scripts/validate.sh",
+        "site/index.html"
+      ],
+      "reviewFindingIds": [],
+      "approvalReference": null,
+      "validation": [
+        {
+          "checkId": "validate-ci",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": null,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-launch/results/A.md"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "agent-work/site-launch/results/A.md",
+          "sha256": "95fd831eaf12d33ae64e7b90cf788c070d5750be0d4c43b01894e749f3d082f3"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
+      }
+    }
+  ]
 }
