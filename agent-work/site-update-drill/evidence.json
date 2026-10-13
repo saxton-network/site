@@ -1,5 +1,47 @@
 {
   "workflowVersion": 3,
   "workflowId": "site-update-drill",
-  "records": []
+  "records": [
+    {
+      "taskId": "A",
+      "attempt": 1,
+      "role": "implementation",
+      "model": null,
+      "branch": "pilot/site-update-drill-impl",
+      "worktree": null,
+      "baseSha": "d28afc431f80347c15f32483fbe936ccedce9727",
+      "candidateSha": "8f3c310876166dc0cb2864dff3646e18830b1758",
+      "deploymentSourceSha": null,
+      "taskStatus": "complete",
+      "readinessVerdict": null,
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [
+        "site/index.html"
+      ],
+      "reviewFindingIds": [],
+      "approvalReference": null,
+      "validation": [
+        {
+          "checkId": "validate-ci",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": null,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-update-drill/results/A.md"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "agent-work/site-update-drill/results/A.md",
+          "sha256": "e018f2486ce1348369e8bb2e522ffb30590b0b9f85c3fc453963d478e0c01965"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
+      }
+    }
+  ]
 }
