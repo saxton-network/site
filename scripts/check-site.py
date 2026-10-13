@@ -19,7 +19,7 @@ LINK_PREFIX = "https://github.com/saxton-network/"
 REPO_LINK = re.compile(r"https://github\.com/saxton-network/([A-Za-z0-9._-]+)")
 # Elements that run code, load resources, or embed content.
 FORBIDDEN_TAGS = {"script", "link", "img", "iframe", "frame", "frameset", "object", "embed", "audio",
-                  "video", "source", "track", "picture", "svg", "math", "base", "form", "input", "button"}
+                  "video", "source", "track", "picture", "svg", "math", "base", "form", "input", "button", "applet"}
 # Attributes that can fetch a resource.
 URL_ATTRS = {"src", "srcset", "data", "poster", "background", "action", "formaction", "manifest", "ping", "cite"}
 
@@ -30,12 +30,20 @@ class PageScanner(HTMLParser):
         self.problems: list[str] = []
         self.links: list[str] = []
         self.styles: list[str] = []
+        self.anchors: list[tuple[str, str]] = []  # (href, link text)
         self._in_style = False
+        self._anchor: list[str] | None = None
+        self._anchor_href = ""
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         self._check_tag(tag, attrs)
         if tag == "style":
             self._in_style = True
+        if tag == "a":
+            if self._anchor is not None:
+                self.problems.append("nested <a> elements")
+            self._anchor = []
+            self._anchor_href = dict(attrs).get("href") or ""
 
     def handle_startendtag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         self._check_tag(tag, attrs)
@@ -43,10 +51,15 @@ class PageScanner(HTMLParser):
     def handle_endtag(self, tag: str) -> None:
         if tag == "style":
             self._in_style = False
+        if tag == "a" and self._anchor is not None:
+            self.anchors.append((self._anchor_href, "".join(self._anchor).strip()))
+            self._anchor = None
 
     def handle_data(self, data: str) -> None:
         if self._in_style:
             self.styles.append(data)
+        if self._anchor is not None:
+            self._anchor.append(data)
 
     def _check_tag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         if tag in FORBIDDEN_TAGS:
@@ -107,6 +120,20 @@ def main() -> int:
         problems.append(f"a repository is linked more than once: {listed}")
     if sorted(set(listed)) != sorted(expected) or len(set(expected)) != len(expected):
         problems.append(f"linked repositories {sorted(listed)} do not match scripts/projects.txt {sorted(expected)}")
+
+    # Repositories may be named only as the target and text of an allowed link: every mention of the
+    # organisation or of GitHub in the page must come from those links' hrefs.
+    if scanner._anchor is not None:
+        problems.append("unclosed <a> element")
+    if len(scanner.anchors) != len(scanner.links):
+        problems.append("every href must belong to a closed <a> element")
+    for href, label in scanner.anchors:
+        match = REPO_LINK.fullmatch(href)
+        if match and label != match.group(1):
+            problems.append(f"link text {label!r} does not match its repository {match.group(1)!r}")
+    for needle in ("saxton-network", "github.com"):
+        if raw.count(needle) != len(scanner.links):
+            problems.append(f"{needle!r} appears outside the repository links")
 
     if problems:
         for problem in problems:
