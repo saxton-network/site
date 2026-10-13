@@ -6,7 +6,7 @@
 
 ## Work
 
-1. **`site/index.html` (v2).** Add one line after the project list: `Last updated 13 October 2026.`, in a `<p>` with inline CSS matching the page's muted text. Nothing else on the page changes.
+1. **`site/index.html` (v2).** Add one line after the project list: `Last updated 13 October 2026.`, in a `<p>` styled like the page's muted text. One CSS rule for it may be added to the existing `<style>` block. Nothing else on the page changes.
 2. **Nothing else.** v2 is content only: `.github/`, `scripts/` and every other file stay byte-identical to v1 (`CONTRACT.md` "Source and authority").
 
 ## Validation

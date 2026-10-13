@@ -11,7 +11,7 @@
   - Validate CI is green on the source;
   - `bash scripts/validate.sh` passes at the source in a clean worktree.
 - **Content only:** `git diff --name-only 8377801ebd47f8ce1ec96eac9bd807dc5a876273 <source>` lists only `site/index.html` and paths under `agent-work/`; `.github/workflows/deploy.yml` and every validator hash equal v1's.
-- **v1 deployable:** v1 is on the source's first-parent history.
+- **v1 deployable:** v1 is on the source's first-parent history. Run `deploy.yml`'s "Require an exact commit on main" and site-check steps locally, in a clean clone with `origin/main` at the source, once with `SHA` = v1 and once with `SHA` = the source; both must pass.
 - **Listed repositories are public:** read each repository's `private`/`visibility` field from GitHub's API. An authenticated call is fine. A 403 from the session proxy, or any response without that field, is a failed probe, never a pass. Record the channel used.
 - **Baseline:** the live page, fetched with `curl -sS --compressed '<url>?cb=<nonce>'`: status 200 and SHA-256 equal to v1's hash. The `deploy.yml` run list (only run 38410452425 expected).
 - **Injected fault, proven locally:** the real v2 hash and the injected value (64 zeros) differ, and the live baseline (v1) equals neither.

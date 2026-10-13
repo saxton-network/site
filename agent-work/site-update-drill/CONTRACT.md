@@ -38,11 +38,12 @@ Checks 1, 2a and 2b run in order, stopping at the first failure. Check 3 is read
 
 WebFetch is never used for acceptance, because it returns converted text, not bytes.
 
-**Expected-failure signature:** 1 and 2a pass, 2b fails, 3 passes, and the live bytes equal v2 exactly. J is then recorded `failed` with `runtimeAcceptance: "FAIL"`, and the drill continues to V. Anything else is a real failure: it is recorded the same way, the rollback still runs, and the drill verdict says what differed.
+**Expected-failure signature:** 1 and 2a pass, 2b fails, 3 passes, and the live bytes equal v2 exactly. J is then recorded `failed` with `runtimeAcceptance: "FAIL"`, and the drill continues to V. Anything else is a real failure: it is recorded the same way, the rollback runs under the condition in "Rollback (V)", and the drill verdict says what differed.
 
 ## Rollback (V)
 
 - **Identity:** `git:8377801ebd47f8ce1ec96eac9bd807dc5a876273`, provenance `results/R-rollback-v1.md`.
+- **When the rollback dispatch is approved:** only if v2 may have gone live, that is, the v2 run reached its `deploy-pages` step (whatever its outcome) or the live bytes differ from v1. If the v2 run never reached `deploy-pages` and the live page still equals v1, nothing changed: V dispatches nothing, records "rollback not needed", and asks the owner how to continue. The approval does not cover a rollback dispatch in that case.
 - **Action:** after the v2 run has finished, one dispatch of `deploy.yml` on `main` with the frozen `results/R-rollback-inputs.json`.
 - **Rollback acceptance**, in order:
   - exactly one new run after the v2 run, with `run-name` `Deploy 8377801ebd47f8ce1ec96eac9bd807dc5a876273`, conclusion success, and `head_sha` equal to the `main` tip;
