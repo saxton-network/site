@@ -1,0 +1,100 @@
+workflow_version = 3
+phase = "site-update-drill"
+title = "Deploy v2 of the landing page as a drill, fail on purpose, and restore v1"
+phase_baseline = "d28afc431f80347c15f32483fbe936ccedce9727"
+plan = "agent-work/site-update-drill/PLAN.md"
+contract = "agent-work/site-update-drill/CONTRACT.md"
+
+[workflow]
+mode = "coordinator"
+plan_status = "approved"
+coordinator = "agent-work/COORDINATOR.md"
+auto_dispatch = true
+max_parallel_subagents = 1
+evidence_manifest = "agent-work/site-update-drill/evidence.json"
+human_gate_tasks = ["J"]
+terminal_task = "K"
+
+[status]
+A = "complete"
+B = "passed"
+C = "blocked"
+P = "complete"
+R = "complete"
+J = "failed"
+V = "complete"
+K = "blocked"
+
+[tasks.A]
+kind = "implementation"
+name = "Build v2 of the page: add a Last updated line"
+file = "agent-work/site-update-drill/A-implementation.md"
+branch = "pilot/site-update-drill-impl"
+depends_on = []
+
+[tasks.B]
+kind = "independent_review"
+name = "Review the v2 candidate and the drill contract"
+file = "agent-work/site-update-drill/B-review.md"
+branch = "pilot/site-update-drill-records"
+depends_on = ["A"]
+required_status = { A = "complete" }
+rerun_after = "C"
+
+[tasks.C]
+kind = "repair"
+name = "Repair review findings"
+file = "agent-work/site-update-drill/C-repair.md"
+branch = "pilot/site-update-drill-fix"
+depends_on = ["B"]
+required_status = { B = "findings" }
+conditional = "review_findings_exist"
+
+[tasks.P]
+kind = "authority_promotion"
+name = "Fast-forward main to the exact reviewed v2 commit"
+file = "agent-work/site-update-drill/P-promotion.md"
+branch = "main"
+depends_on = ["B"]
+required_status = { B = "passed" }
+
+[tasks.R]
+kind = "release_readiness"
+name = "Prove readiness, prove the injected fault locally, freeze the batch"
+file = "agent-work/site-update-drill/R-readiness.md"
+branch = "pilot/site-update-drill-records"
+depends_on = ["B", "P"]
+required_status = { B = "passed" }
+
+[tasks.J]
+kind = "live_deployment"
+name = "Deploy v2 after owner approval; expect the injected failure and stop"
+file = "agent-work/site-update-drill/J-live.md"
+branch = "pilot/site-update-drill-records"
+depends_on = ["R"]
+human_gate = "live-change-approval"
+
+[tasks.V]
+kind = "other"
+name = "Redeploy v1 as the rollback, verify it, and land the records"
+file = "agent-work/site-update-drill/V-rollback.md"
+branch = "pilot/site-update-drill-records"
+depends_on = ["J"]
+required_status = { J = "failed" }
+
+[tasks.K]
+kind = "final_reconciliation"
+name = "Final reconciliation (never ready in this drill)"
+file = "agent-work/site-update-drill/K-reconcile.md"
+branch = "pilot/site-update-drill-records"
+depends_on = ["J"]
+
+[deployment]
+implementation_tasks = ["A"]
+review_task = "B"
+authority_task = "P"
+authority_remote = "origin"
+authority_ref = "refs/heads/main"
+readiness_task = "R"
+live_task = "J"
+final_reconciliation_task = "K"
