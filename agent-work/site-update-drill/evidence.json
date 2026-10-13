@@ -112,6 +112,157 @@
         "path": "scripts/agent-task.py",
         "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
       }
+    },
+    {
+      "taskId": "R",
+      "attempt": 1,
+      "role": "release_readiness",
+      "model": null,
+      "branch": "pilot/site-update-drill-records",
+      "worktree": null,
+      "baseSha": "8f3c310876166dc0cb2864dff3646e18830b1758",
+      "candidateSha": "8f3c310876166dc0cb2864dff3646e18830b1758",
+      "deploymentSourceSha": "8f3c310876166dc0cb2864dff3646e18830b1758",
+      "taskStatus": "complete",
+      "readinessVerdict": "PASS",
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [],
+      "reviewFindingIds": [],
+      "approvalReference": null,
+      "rollbackArtifact": {
+        "identity": "git:8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+        "provenance": "agent-work/site-update-drill/results/R-rollback-v1.md"
+      },
+      "frozenBatch": {
+        "deploymentSourceSha": "8f3c310876166dc0cb2864dff3646e18830b1758",
+        "deployableArtifactSha256": "1f60283e1c442f0fd8e0015787c84febd2b37eabfe83bc9dbea54e7b345f7a35",
+        "deploymentConfiguration": [
+          {
+            "path": ".github/workflows/deploy.yml",
+            "sha256": "45fd739663807a7cf325c18ecb57b31ff20decf1d4b61a9a05155a12e800073e"
+          },
+          {
+            "path": "agent-work/site-update-drill/results/R-dispatch-inputs.json",
+            "sha256": "e27030c7cf97b3e82261c33752143f18515a84dfce60e503bdbff5b03d88b175"
+          },
+          {
+            "path": "agent-work/site-update-drill/results/R-rollback-inputs.json",
+            "sha256": "927b8539ce464e5e7cd1c65b1b1d720f9b2ce972f2f2d39ce52744e8e054650a"
+          },
+          {
+            "path": "agent-work/site-update-drill/results/R-expected-sha256.txt",
+            "sha256": "e89c49e5e70403ddf71052106a3eb9983031b4f2d6c32a88c9b99d32c7dfb738"
+          },
+          {
+            "path": "agent-work/site-update-drill/results/R-expected-sha256-INJECTED.txt",
+            "sha256": "827d096d92f3deeaa0e8070d79f45beb176768e57a958a1cd325f5f4b754b048"
+          },
+          {
+            "path": "agent-work/site-update-drill/CONTRACT.md",
+            "sha256": "5ccccdbb836fc95ced121c1b68700ca674a2b0b48f2db5eb37028b50c69a7f39"
+          }
+        ],
+        "validators": [
+          {
+            "path": "scripts/check-site.py",
+            "sha256": "98bd656dd3d8c22341cc18ce6e4e9d209dc418583f1bc1b58e08d18fd5e0a2d5"
+          },
+          {
+            "path": "scripts/validate.sh",
+            "sha256": "f9f79783f5b37cf776cad75328a65d954fb814c26f4e2443ad590c5027e80472"
+          },
+          {
+            "path": "scripts/agent-task.py",
+            "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
+          }
+        ],
+        "rollbackArtifact": {
+          "identity": "git:8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+          "provenance": "agent-work/site-update-drill/results/R-rollback-v1.md"
+        },
+        "installedScripts": [],
+        "deploymentTargets": [
+          {
+            "destination": "https://saxton-network.github.io/site",
+            "mode": null
+          }
+        ]
+      },
+      "frozenBatchFingerprint": "d2a53d23b197f1bc5a80e8c95c9970c6508c766798b50df0f4427d6863542726",
+      "gitDivergence": {
+        "identical": true,
+        "authoritySha": "8f3c310876166dc0cb2864dff3646e18830b1758",
+        "otherSha": "8f3c310876166dc0cb2864dff3646e18830b1758"
+      },
+      "validation": [
+        {
+          "checkId": "validate-sh",
+          "inputFingerprint": null,
+          "validatorSha256": "f9f79783f5b37cf776cad75328a65d954fb814c26f4e2443ad590c5027e80472",
+          "exitCode": 0,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-update-drill/results/R.md"
+        },
+        {
+          "checkId": "listed-repositories-public",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": 0,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-update-drill/results/R.md"
+        },
+        {
+          "checkId": "rollback-guard-local",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": 0,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-update-drill/results/R.md"
+        },
+        {
+          "checkId": "injected-fault-local-proof",
+          "inputFingerprint": "1f60283e1c442f0fd8e0015787c84febd2b37eabfe83bc9dbea54e7b345f7a35",
+          "validatorSha256": null,
+          "exitCode": 0,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-update-drill/results/R.md"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "agent-work/site-update-drill/results/R.md",
+          "sha256": "8bd2610d6d2a020828f98aa72f7cde616eab8123be516eba4866a56a9b320004"
+        },
+        {
+          "path": "agent-work/site-update-drill/results/R-rollback-v1.md",
+          "sha256": "311c26b98a677317cc880b5ef8ec00fe4437149ac5fd214cf8b52dbfc31c6457"
+        },
+        {
+          "path": "agent-work/site-update-drill/results/R-dispatch-inputs.json",
+          "sha256": "e27030c7cf97b3e82261c33752143f18515a84dfce60e503bdbff5b03d88b175"
+        },
+        {
+          "path": "agent-work/site-update-drill/results/R-rollback-inputs.json",
+          "sha256": "927b8539ce464e5e7cd1c65b1b1d720f9b2ce972f2f2d39ce52744e8e054650a"
+        },
+        {
+          "path": "agent-work/site-update-drill/results/R-expected-sha256.txt",
+          "sha256": "e89c49e5e70403ddf71052106a3eb9983031b4f2d6c32a88c9b99d32c7dfb738"
+        },
+        {
+          "path": "agent-work/site-update-drill/results/R-expected-sha256-INJECTED.txt",
+          "sha256": "827d096d92f3deeaa0e8070d79f45beb176768e57a958a1cd325f5f4b754b048"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
+      }
     }
   ]
 }
