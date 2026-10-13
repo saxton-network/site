@@ -22,6 +22,7 @@ C = "conditional"
 P = "blocked"
 R = "blocked"
 J = "blocked"
+V = "blocked"
 K = "blocked"
 
 [tasks.A]
@@ -72,6 +73,14 @@ file = "agent-work/site-launch/J-live.md"
 branch = "pilot/site-launch-records"
 depends_on = ["R"]
 human_gate = "live-change-approval"
+
+[tasks.V]
+kind = "other"
+name = "After a failed launch: verify any unpublish and land the records"
+file = "agent-work/site-launch/V-rollback.md"
+branch = "pilot/site-launch-records"
+depends_on = ["J"]
+required_status = { J = "failed" }
 
 [tasks.K]
 kind = "final_reconciliation"

@@ -9,9 +9,9 @@
 
 ## Review
 
-1. **The page.** Every site rule, including a privacy read:
+1. **The page, the candidate diff, its commit messages and its branch name.** Every site rule, including a privacy read:
    - nothing private, no person, no contact details;
-   - the listed repositories are public now, checked by an unauthenticated GET.
+   - the listed repositories are public now: read each repository's `private`/`visibility` field from GitHub's API. An authenticated call is fine, because the field, not the status code, proves it is public. A 403 from the session proxy, or any response without that field, is a failed probe, never a pass. Record the channel used.
 2. **`check-site.py`.** It must discriminate: run mutants and bad fixtures.
 3. **`deploy.yml`.**
    - the input checks, including the ancestry check and injection safety;

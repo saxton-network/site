@@ -42,11 +42,12 @@ WebFetch is never used for acceptance, because it returns converted text, not by
 ## Rollback
 
 - **Identity:** `pages-unpublished-404`.
-- **If acceptance fails:**
+- **If anything fails:**
   1. The coordinator stops and records J `failed` with `runtimeAcceptance: "FAIL"`.
-  2. If the failure is an exposure problem, such as wrong content naming something it must not, the owner unpublishes the site (Settings → Pages → Unpublish site).
-  3. The coordinator then polls until the page returns 404.
-- A content mistake that exposes nothing is fixed by a new reviewed update, not by unpublishing.
+  2. It shows the owner the live hash, the status, and what differs.
+  3. **The owner decides** whether to unpublish (Settings → Pages → Unpublish site). If they do, task V polls until the page returns 404.
+- **End state:** "stopped after failed launch", with the rollback recorded as either "unpublished and verified 404" or "declined by owner".
+- **Records.** Task V lands the records, as in Pilot 4 of Workflow. A content mistake that exposes nothing is fixed later by a new reviewed update.
 
 ## Retry boundary
 

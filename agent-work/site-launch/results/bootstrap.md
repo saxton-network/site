@@ -8,7 +8,7 @@
 
   It produced commits `4222aac` and `f2cc21a`, and an ambiguity log of 21 entries in `ADOPTION.md`.
 - **Review 1, on `f2cc21a`: findings.** The reviewer was a separate agent on a different model from the builder.
-  - All 17 checklist items PASS.
+  - All 17 checklist items PASS. Item 15 was applied to the PR's commits; the owner's starter commit `aaa38c8` carries the owner's own identity, accepted under the plan's Owner clarifications.
   - F1 (Medium): `validate.sh` skipped hash rows it could not parse.
   - F2, F3 and F5 (Low).
   - F4 (informational, out of scope).

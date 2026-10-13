@@ -11,9 +11,10 @@
 
 1. **Recheck:**
    - `origin/main` equals the source, and record its tip;
+   - record the IDs of the existing `deploy.yml` runs, so that "exactly one new run" can be proven;
    - the frozen file hashes;
    - the live page baseline.
-2. **Dispatch** exactly the frozen inputs. Find the single new run. If its `run-name` or `head_sha` is wrong, cancel it and stop.
+2. **Dispatch** exactly the frozen inputs. Find the single new run. If its `run-name` or `head_sha` is wrong, cancel it, wait for it to finish, record J `failed` with `runtimeAcceptance: "FAIL"`, and stop.
 3. **Runtime acceptance:** checks 1–3 of `CONTRACT.md`, stopping at the first failure.
 4. **On failure:** record J `failed` with `runtimeAcceptance: "FAIL"`, and follow the contract's rollback.
 

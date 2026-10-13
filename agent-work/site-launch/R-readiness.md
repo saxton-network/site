@@ -10,7 +10,7 @@
   - `origin/main` equals the source (`gitDivergence` `identical: true`);
   - Validate CI is green on the source;
   - `bash scripts/validate.sh` passes at the source in a clean worktree.
-- **Listed repositories are public:** an unauthenticated GET of each returns 200 with `private: false`.
+- **Listed repositories are public:** read each repository's `private`/`visibility` field from GitHub's API. An authenticated call is fine, because the field, not the status code, proves it is public. A 403 from the session proxy, or any response without that field, is a failed probe, never a pass. Record the channel used.
 - **Baseline:** the live page status, fetched with `curl -sS --compressed '<url>?cb=<nonce>'`. Before launch it is "status 404" only.
 - **Pages enablement:** recorded as accepted unknown 2, with the owner's confirmation.
 
@@ -21,6 +21,7 @@
 - `deploymentConfiguration`:
   - `.github/workflows/deploy.yml`
   - `agent-work/site-launch/results/R-dispatch-inputs.json`
+  - `agent-work/site-launch/CONTRACT.md`
 - `validators`, at the source:
   - `scripts/check-site.py`
   - `scripts/validate.sh`

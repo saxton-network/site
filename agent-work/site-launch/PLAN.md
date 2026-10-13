@@ -1,6 +1,6 @@
 # Pilot plan: `saxton-network/site`, a first real project run through Workflow
 
-Status: revision 3, approved by the owner on 2026-10-13 with all recommended decisions. It covers both workflows, `site-launch` and `site-update-drill`; the copy in `agent-work/site-update-drill/` is identical.
+Status: revision 3, approved by the owner on 2026-10-13 with all recommended decisions. It covers both workflows, `site-launch` and `site-update-drill`; an identical copy goes in `agent-work/site-update-drill/` when that workflow is compiled. Where the "Owner clarifications during the run" at the end differ from the text above (who created the repository, the root commit, commit identity), the clarifications govern.
 
 ## Goal
 
