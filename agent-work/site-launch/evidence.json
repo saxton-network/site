@@ -1,0 +1,577 @@
+{
+  "workflowVersion": 3,
+  "workflowId": "site-launch",
+  "records": [
+    {
+      "taskId": "A",
+      "attempt": 1,
+      "role": "implementation",
+      "model": null,
+      "branch": "pilot/site-launch-impl",
+      "worktree": null,
+      "baseSha": "3da96f0555ea6484ab7630654af0fc1f6ec90ceb",
+      "candidateSha": "082505507cc98965972aceaef278a9e84f267b3b",
+      "deploymentSourceSha": null,
+      "taskStatus": "complete",
+      "readinessVerdict": null,
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [
+        ".github/workflows/deploy.yml",
+        "scripts/check-site.py",
+        "scripts/projects.txt",
+        "scripts/validate.sh",
+        "site/index.html"
+      ],
+      "reviewFindingIds": [],
+      "approvalReference": null,
+      "validation": [
+        {
+          "checkId": "validate-ci",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": null,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-launch/results/A.md"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "agent-work/site-launch/results/A.md",
+          "sha256": "95fd831eaf12d33ae64e7b90cf788c070d5750be0d4c43b01894e749f3d082f3"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
+      }
+    },
+    {
+      "taskId": "B",
+      "attempt": 1,
+      "role": "independent_review",
+      "model": null,
+      "branch": "pilot/site-launch-records",
+      "worktree": null,
+      "baseSha": "3da96f0555ea6484ab7630654af0fc1f6ec90ceb",
+      "candidateSha": "082505507cc98965972aceaef278a9e84f267b3b",
+      "deploymentSourceSha": "082505507cc98965972aceaef278a9e84f267b3b",
+      "taskStatus": "findings",
+      "readinessVerdict": null,
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [],
+      "reviewFindingIds": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "approvalReference": null,
+      "validation": [],
+      "evidence": [
+        {
+          "path": "agent-work/site-launch/results/B-1.md",
+          "sha256": "1506ee275d80eeef288b01e49b6b7fe870f8250fc4ff8eeb123506d49ce45f12"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
+      }
+    },
+    {
+      "taskId": "C",
+      "attempt": 1,
+      "role": "repair",
+      "model": null,
+      "branch": "pilot/site-launch-fix",
+      "worktree": null,
+      "baseSha": "082505507cc98965972aceaef278a9e84f267b3b",
+      "candidateSha": "4ab14982be8e140bff75ad5a774affa3d9db680c",
+      "deploymentSourceSha": null,
+      "taskStatus": "complete",
+      "readinessVerdict": null,
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [
+        ".github/workflows/deploy.yml",
+        "scripts/check-site.py"
+      ],
+      "reviewFindingIds": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "approvalReference": null,
+      "validation": [
+        {
+          "checkId": "validate-ci",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": null,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-launch/results/C-1.md"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "agent-work/site-launch/results/C-1.md",
+          "sha256": "fdf18841afc5c04e858277b4a4113afc44efe08688a27cfb45029152e41f8fad"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
+      }
+    },
+    {
+      "taskId": "B",
+      "attempt": 2,
+      "role": "independent_review",
+      "model": null,
+      "branch": "pilot/site-launch-records",
+      "worktree": null,
+      "baseSha": "3da96f0555ea6484ab7630654af0fc1f6ec90ceb",
+      "candidateSha": "4ab14982be8e140bff75ad5a774affa3d9db680c",
+      "deploymentSourceSha": "4ab14982be8e140bff75ad5a774affa3d9db680c",
+      "taskStatus": "findings",
+      "readinessVerdict": null,
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [],
+      "reviewFindingIds": [
+        "F5",
+        "F6",
+        "S1",
+        "S2"
+      ],
+      "approvalReference": null,
+      "validation": [],
+      "evidence": [
+        {
+          "path": "agent-work/site-launch/results/B-2.md",
+          "sha256": "6964f7bd5b906572570c6636aae4bdd71804ee13b5d5bdee64b247b26ad19c24"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
+      }
+    },
+    {
+      "taskId": "C",
+      "attempt": 2,
+      "role": "repair",
+      "model": null,
+      "branch": "pilot/site-launch-fix",
+      "worktree": null,
+      "baseSha": "4ab14982be8e140bff75ad5a774affa3d9db680c",
+      "candidateSha": "68660011c9e8394d5d5626c030d2ae6e44c79ba1",
+      "deploymentSourceSha": null,
+      "taskStatus": "complete",
+      "readinessVerdict": null,
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [
+        "scripts/check-site.py"
+      ],
+      "reviewFindingIds": [
+        "F5",
+        "F6"
+      ],
+      "approvalReference": null,
+      "validation": [
+        {
+          "checkId": "validate-ci",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": null,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-launch/results/C-2.md"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "agent-work/site-launch/results/C-2.md",
+          "sha256": "128a34d14aaba099e76f9ca67a7b0f7be7cc18d77c592d43b7cdbec8272b7ccc"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
+      }
+    },
+    {
+      "taskId": "B",
+      "attempt": 3,
+      "role": "independent_review",
+      "model": null,
+      "branch": "pilot/site-launch-records",
+      "worktree": null,
+      "baseSha": "3da96f0555ea6484ab7630654af0fc1f6ec90ceb",
+      "candidateSha": "68660011c9e8394d5d5626c030d2ae6e44c79ba1",
+      "deploymentSourceSha": "68660011c9e8394d5d5626c030d2ae6e44c79ba1",
+      "taskStatus": "findings",
+      "readinessVerdict": null,
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [],
+      "reviewFindingIds": [
+        "F7"
+      ],
+      "approvalReference": null,
+      "validation": [],
+      "evidence": [
+        {
+          "path": "agent-work/site-launch/results/B-3.md",
+          "sha256": "c356e26e8d7ec3bbd17ffdafc60a7bac619e57a7b231ff15c780f8a2e95792f9"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
+      }
+    },
+    {
+      "taskId": "C",
+      "attempt": 3,
+      "role": "repair",
+      "model": null,
+      "branch": "pilot/site-launch-fix",
+      "worktree": null,
+      "baseSha": "68660011c9e8394d5d5626c030d2ae6e44c79ba1",
+      "candidateSha": "8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+      "deploymentSourceSha": null,
+      "taskStatus": "complete",
+      "readinessVerdict": null,
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [
+        "scripts/check-site.py"
+      ],
+      "reviewFindingIds": [
+        "F7"
+      ],
+      "approvalReference": null,
+      "validation": [
+        {
+          "checkId": "validate-ci",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": null,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-launch/results/C-3.md"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "agent-work/site-launch/results/C-3.md",
+          "sha256": "862dafd00e72bdcf4d25acdb4473af627b7569116539b9172c7cfb7134401a58"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
+      }
+    },
+    {
+      "taskId": "B",
+      "attempt": 4,
+      "role": "independent_review",
+      "model": null,
+      "branch": "pilot/site-launch-records",
+      "worktree": null,
+      "baseSha": "3da96f0555ea6484ab7630654af0fc1f6ec90ceb",
+      "candidateSha": "8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+      "deploymentSourceSha": "8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+      "taskStatus": "passed",
+      "readinessVerdict": null,
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [],
+      "reviewFindingIds": [
+        "F8"
+      ],
+      "approvalReference": null,
+      "validation": [],
+      "evidence": [
+        {
+          "path": "agent-work/site-launch/results/B-4.md",
+          "sha256": "573691a78e0d7c5f2fcf0beef79bb4856472ec6335021f041cf629658118a3ef"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
+      }
+    },
+    {
+      "taskId": "P",
+      "attempt": 1,
+      "role": "authority_promotion",
+      "model": null,
+      "branch": "main",
+      "worktree": null,
+      "baseSha": "3da96f0555ea6484ab7630654af0fc1f6ec90ceb",
+      "candidateSha": "8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+      "deploymentSourceSha": "8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+      "taskStatus": "complete",
+      "readinessVerdict": null,
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [],
+      "reviewFindingIds": [],
+      "approvalReference": null,
+      "validation": [
+        {
+          "checkId": "ancestry-and-fast-forward",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": 0,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-launch/results/P.md"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "agent-work/site-launch/results/P.md",
+          "sha256": "8749a8965f713f768aaaeab56213658916f1c6462753aeb9ce7eb3e422632af3"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
+      }
+    },
+    {
+      "taskId": "R",
+      "attempt": 1,
+      "role": "release_readiness",
+      "model": null,
+      "branch": "pilot/site-launch-records",
+      "worktree": null,
+      "baseSha": "8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+      "candidateSha": "8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+      "deploymentSourceSha": "8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+      "taskStatus": "complete",
+      "readinessVerdict": "PASS",
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [],
+      "reviewFindingIds": [],
+      "approvalReference": null,
+      "rollbackArtifact": {
+        "identity": "pages-unpublished-404",
+        "provenance": "agent-work/site-launch/results/R-rollback.md"
+      },
+      "frozenBatch": {
+        "deploymentSourceSha": "8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+        "deployableArtifactSha256": "495b4b2b4e8c25335184fa994716a888bc9f0980b3196eb633110bde18351eb3",
+        "deploymentConfiguration": [
+          {
+            "path": ".github/workflows/deploy.yml",
+            "sha256": "45fd739663807a7cf325c18ecb57b31ff20decf1d4b61a9a05155a12e800073e"
+          },
+          {
+            "path": "agent-work/site-launch/results/R-dispatch-inputs.json",
+            "sha256": "927b8539ce464e5e7cd1c65b1b1d720f9b2ce972f2f2d39ce52744e8e054650a"
+          },
+          {
+            "path": "agent-work/site-launch/CONTRACT.md",
+            "sha256": "e05c5dd7f929ce60ec4fb4a839991453048d95bde14b131a26c52f3bfd5d1e1b"
+          }
+        ],
+        "validators": [
+          {
+            "path": "scripts/check-site.py",
+            "sha256": "98bd656dd3d8c22341cc18ce6e4e9d209dc418583f1bc1b58e08d18fd5e0a2d5"
+          },
+          {
+            "path": "scripts/validate.sh",
+            "sha256": "f9f79783f5b37cf776cad75328a65d954fb814c26f4e2443ad590c5027e80472"
+          },
+          {
+            "path": "scripts/agent-task.py",
+            "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
+          }
+        ],
+        "rollbackArtifact": {
+          "identity": "pages-unpublished-404",
+          "provenance": "agent-work/site-launch/results/R-rollback.md"
+        },
+        "installedScripts": [],
+        "deploymentTargets": [
+          {
+            "destination": "https://saxton-network.github.io/site",
+            "mode": null
+          }
+        ]
+      },
+      "frozenBatchFingerprint": "23142a14e4f5434621d9362c31934b0c4519e8f7240fc7e333cce12885eed71a",
+      "gitDivergence": {
+        "identical": true,
+        "authoritySha": "8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+        "otherSha": "8377801ebd47f8ce1ec96eac9bd807dc5a876273"
+      },
+      "validation": [
+        {
+          "checkId": "validate-sh",
+          "inputFingerprint": null,
+          "validatorSha256": "f9f79783f5b37cf776cad75328a65d954fb814c26f4e2443ad590c5027e80472",
+          "exitCode": 0,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-launch/results/R.md"
+        },
+        {
+          "checkId": "listed-repositories-public",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": 0,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-launch/results/R.md"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "agent-work/site-launch/results/R.md",
+          "sha256": "fa84cd7019533d0f47ec6ef5688f08bbd6969482d3f92d29769001401d37edb2"
+        },
+        {
+          "path": "agent-work/site-launch/results/R-rollback.md",
+          "sha256": "4507b200d3deb498a4399cb037ba06ebd4e0b7103ccc95cc2458db0493a5f020"
+        },
+        {
+          "path": "agent-work/site-launch/results/R-dispatch-inputs.json",
+          "sha256": "927b8539ce464e5e7cd1c65b1b1d720f9b2ce972f2f2d39ce52744e8e054650a"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
+      }
+    },
+    {
+      "taskId": "J",
+      "attempt": 1,
+      "role": "live_deployment",
+      "model": null,
+      "branch": "pilot/site-launch-records",
+      "worktree": null,
+      "baseSha": "8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+      "candidateSha": "8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+      "deploymentSourceSha": "8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+      "taskStatus": "in_progress",
+      "readinessVerdict": null,
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [],
+      "reviewFindingIds": [],
+      "approvalReference": "agent-work/site-launch/results/J-approval.md",
+      "frozenBatchFingerprint": "23142a14e4f5434621d9362c31934b0c4519e8f7240fc7e333cce12885eed71a",
+      "validation": [],
+      "evidence": [
+        {
+          "path": "agent-work/site-launch/results/J-approval.md",
+          "sha256": "10cdc98acb697d40bb4303153acb692bf0c2c746d6513d7c3f7447942adbd1d3"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
+      }
+    },
+    {
+      "taskId": "J",
+      "attempt": 1,
+      "role": "live_deployment",
+      "model": null,
+      "branch": "pilot/site-launch-records",
+      "worktree": null,
+      "baseSha": "8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+      "candidateSha": "8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+      "deploymentSourceSha": "8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+      "taskStatus": "complete",
+      "readinessVerdict": null,
+      "startedAt": "2026-10-13T14:06:02Z",
+      "completedAt": "2026-10-13T14:07:05Z",
+      "changedPaths": [],
+      "reviewFindingIds": [],
+      "approvalReference": "agent-work/site-launch/results/J-approval.md",
+      "frozenBatchFingerprint": "23142a14e4f5434621d9362c31934b0c4519e8f7240fc7e333cce12885eed71a",
+      "validation": [
+        {
+          "checkId": "runtime-acceptance",
+          "inputFingerprint": "23142a14e4f5434621d9362c31934b0c4519e8f7240fc7e333cce12885eed71a",
+          "validatorSha256": null,
+          "exitCode": 0,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-launch/results/J.md"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "agent-work/site-launch/results/J.md",
+          "sha256": "1b0094b036197869bd99220474fad6a4f9a93f4496a402e356aa2f7380db4912"
+        },
+        {
+          "path": "agent-work/site-launch/results/J-approval.md",
+          "sha256": "10cdc98acb697d40bb4303153acb692bf0c2c746d6513d7c3f7447942adbd1d3"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
+      },
+      "runtimeAcceptance": "PASS"
+    },
+    {
+      "taskId": "K",
+      "attempt": 1,
+      "role": "final_reconciliation",
+      "model": null,
+      "branch": "pilot/site-launch-records",
+      "worktree": null,
+      "baseSha": "8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+      "candidateSha": null,
+      "deploymentSourceSha": "8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+      "taskStatus": "complete",
+      "readinessVerdict": null,
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [],
+      "reviewFindingIds": [],
+      "approvalReference": null,
+      "validation": [
+        {
+          "checkId": "refs-and-live-reconciled",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": 0,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-launch/results/K.md"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "agent-work/site-launch/results/K.md",
+          "sha256": "333737f8944f1b20640725ad0173ac96919fea1649d06273fe2f6cfd9f3ca7b0"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
+      }
+    }
+  ]
+}
