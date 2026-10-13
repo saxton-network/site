@@ -533,6 +533,45 @@
         "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
       },
       "runtimeAcceptance": "PASS"
+    },
+    {
+      "taskId": "K",
+      "attempt": 1,
+      "role": "final_reconciliation",
+      "model": null,
+      "branch": "pilot/site-launch-records",
+      "worktree": null,
+      "baseSha": "8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+      "candidateSha": null,
+      "deploymentSourceSha": "8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+      "taskStatus": "complete",
+      "readinessVerdict": null,
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [],
+      "reviewFindingIds": [],
+      "approvalReference": null,
+      "validation": [
+        {
+          "checkId": "refs-and-live-reconciled",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": 0,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-launch/results/K.md"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "agent-work/site-launch/results/K.md",
+          "sha256": "333737f8944f1b20640725ad0173ac96919fea1649d06273fe2f6cfd9f3ca7b0"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
+      }
     }
   ]
 }
