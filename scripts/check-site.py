@@ -76,12 +76,21 @@ def main() -> int:
         print("FAIL: site/index.html is missing", file=sys.stderr)
         return 1
     text = PAGE.read_text(encoding="utf-8")
+    # Raw-text checks do not depend on how a given Python version's HTMLParser reads the page.
+    raw = text.lower()
+    if "<!--" in raw:
+        problems.append("HTML comments are not allowed (parsers disagree on where they end)")
+    for needle in ("<script", "javascript:", "url(", "@import"):
+        if needle in raw:
+            problems.append(f"page text contains {needle!r}")
     scanner = PageScanner()
     scanner.feed(text)
     scanner.close()
     problems.extend(scanner.problems)
 
     css = "\n".join(scanner.styles).lower()
+    if "\\" in css:
+        problems.append("CSS contains a backslash escape")
     for needle in ("url(", "@import", "expression(", "image-set("):
         if needle in css:
             problems.append(f"CSS contains {needle}")

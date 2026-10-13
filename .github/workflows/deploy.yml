@@ -23,7 +23,7 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -42,8 +42,9 @@ jobs:
             exit 1
           fi
           git fetch --no-tags origin +refs/heads/main:refs/remotes/origin/main
-          if ! git merge-base --is-ancestor "$SHA" origin/main; then
-            echo "Commit $SHA is not on main" >&2
+          # Only commits on main's own first-parent line, never ones that arrived on a merged side branch.
+          if ! git rev-list --first-parent origin/main | grep -qx "$SHA"; then
+            echo "Commit $SHA is not on main's first-parent history" >&2
             exit 1
           fi
           git checkout --detach "$SHA"
