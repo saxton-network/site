@@ -10,12 +10,32 @@ cd "$ROOT_DIR"
 
 # 1. Vendored file hashes. ADOPTION.md rows have the form:
 # | `<path here>` | `<source path>` | `<40-hex source commit>` | `<64-hex sha256>` |
+# The set of vendored paths is fixed here, so deleting or mangling a row cannot hide a file.
+# Adding or removing a vendored file means changing this list and ADOPTION.md together.
+expected_paths=(
+  agent-work/README.md
+  agent-work/WORKFLOW-SPEC.md
+  agent-work/COORDINATOR.md
+  agent-work/RESULT-TEMPLATE.md
+  agent-work/EVIDENCE-MANIFEST.md
+  docs/THREAT-MODEL.md
+  docs/agent-worktrees.md
+  scripts/agent-task.py
+)
 row='^\| `([^`]+)` \| `([^`]+)` \| `([0-9a-f]{40})` \| `([0-9a-f]{64})` \|'
+# Any table row carrying something that looks like a SHA-256 must match the strict form.
+loose='^\| `.*[0-9A-Fa-f]{64}'
 checked=0
 failed=0
 declare -A seen=()
 while IFS= read -r line; do
-  [[ "$line" =~ $row ]] || continue
+  if [[ ! "$line" =~ $row ]]; then
+    if [[ "$line" =~ $loose ]]; then
+      echo "FAIL: malformed hash row in ADOPTION.md: $line" >&2
+      failed=1
+    fi
+    continue
+  fi
   path="${BASH_REMATCH[1]}"
   expected="${BASH_REMATCH[4]}"
   if [[ -n "${seen[$path]:-}" ]]; then
@@ -38,16 +58,25 @@ while IFS= read -r line; do
   fi
   checked=$((checked + 1))
 done < ADOPTION.md
+for path in "${expected_paths[@]}"; do
+  if [[ -z "${seen[$path]:-}" ]]; then
+    echo "FAIL: vendored file $path has no hash row in ADOPTION.md" >&2
+    failed=1
+  fi
+done
+for path in "${!seen[@]}"; do
+  if [[ ! " ${expected_paths[*]} " == *" $path "* ]]; then
+    echo "FAIL: ADOPTION.md records $path, which is not in the vendored list in scripts/validate.sh" >&2
+    failed=1
+  fi
+done
 if [[ "$failed" -ne 0 ]]; then
-  exit 1
-fi
-if [[ "$checked" -eq 0 ]]; then
-  echo "FAIL: no SHA-256 entries found in ADOPTION.md" >&2
   exit 1
 fi
 echo "PASS: $checked vendored file hashes match ADOPTION.md"
 
-# 2. Site checks (added later).
+# 2. Site checks. While scripts/check-site.py does not exist yet this is a note; the change that
+#    adds it must also make its absence a failure.
 if [[ -f scripts/check-site.py ]]; then
   python3 scripts/check-site.py
   echo "PASS: scripts/check-site.py"
@@ -55,8 +84,15 @@ else
   echo "NOTE: scripts/check-site.py does not exist yet; site checks skipped"
 fi
 
-# 3. Workflow manifests.
+# 3. Workflow manifests. Every workflow directory must have one; a misnamed manifest must not
+#    leave a workflow unvalidated.
 shopt -s nullglob
+for dir in agent-work/*/; do
+  if [[ ! -f "${dir}manifest.toml" ]]; then
+    echo "FAIL: ${dir%/} has no manifest.toml" >&2
+    exit 1
+  fi
+done
 manifests=(agent-work/*/manifest.toml)
 shopt -u nullglob
 if [[ "${#manifests[@]}" -eq 0 ]]; then
