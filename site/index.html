@@ -5,15 +5,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Saxton Network</title>
 <style>
-  body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; font-family: system-ui, sans-serif; background: #ffffff; color: #1f2328; }
-  main { padding: 1rem; text-align: center; }
-  h1 { margin: 0; font-size: 2rem; }
-  @media (prefers-color-scheme: dark) { body { background: #0d1117; color: #e6edf3; } }
+  body { margin: 0; font-family: system-ui, sans-serif; background: #ffffff; color: #1f2328; line-height: 1.5; }
+  main { max-width: 40rem; margin: 0 auto; padding: 3rem 1rem; }
+  h1 { margin: 0 0 0.5rem; font-size: 2rem; }
+  p.lead { margin: 0 0 2rem; color: #59636e; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li { border: 1px solid #d1d9e0; border-radius: 0.5rem; padding: 1rem; margin: 0 0 1rem; }
+  a { color: #0969da; font-weight: 600; text-decoration: none; }
+  a:hover, a:focus { text-decoration: underline; }
+  li p { margin: 0.25rem 0 0; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #0d1117; color: #e6edf3; }
+    p.lead { color: #9198a1; }
+    li { border-color: #3d444d; }
+    a { color: #4493f8; }
+  }
 </style>
 </head>
 <body>
 <main>
-<h1>Saxton Network — coming soon</h1>
+<h1>Saxton Network</h1>
+<p class="lead">Public projects from the Saxton Network organisation on GitHub.</p>
+<ul>
+<li>
+<a href="https://github.com/saxton-network/workflow">workflow</a>
+<p>A repository-native workflow system for coordinating AI coding agents with isolated worktrees, independent review, evidence-backed gates, and fail-closed deployment safety.</p>
+</li>
+<li>
+<a href="https://github.com/saxton-network/chudley">chudley</a>
+<p>Chudley Codex Pet</p>
+</li>
+</ul>
 </main>
 </body>
 </html>

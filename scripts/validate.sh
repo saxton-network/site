@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Repository gate. Fails on any error.
 #  1. Verifies every SHA-256 recorded in ADOPTION.md against the files.
-#  2. Runs scripts/check-site.py when it exists; otherwise prints a note.
+#  2. Runs scripts/check-site.py, which must exist.
 #  3. Validates every agent-work/<workflow-id>/manifest.toml with the Workflow helper.
 set -Eeuo pipefail
 
@@ -75,14 +75,12 @@ if [[ "$failed" -ne 0 ]]; then
 fi
 echo "PASS: $checked vendored file hashes match ADOPTION.md"
 
-# 2. Site checks. While scripts/check-site.py does not exist yet this is a note; the change that
-#    adds it must also make its absence a failure.
-if [[ -f scripts/check-site.py ]]; then
-  python3 scripts/check-site.py
-  echo "PASS: scripts/check-site.py"
-else
-  echo "NOTE: scripts/check-site.py does not exist yet; site checks skipped"
+# 2. Site checks. scripts/check-site.py is required; its absence is a failure.
+if [[ ! -f scripts/check-site.py ]]; then
+  echo "FAIL: scripts/check-site.py is missing" >&2
+  exit 1
 fi
+python3 scripts/check-site.py
 
 # 3. Workflow manifests. Every workflow directory must have one; a misnamed manifest must not
 #    leave a workflow unvalidated.
