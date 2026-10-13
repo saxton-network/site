@@ -310,6 +310,154 @@
         "path": "scripts/agent-task.py",
         "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
       }
+    },
+    {
+      "taskId": "P",
+      "attempt": 1,
+      "role": "authority_promotion",
+      "model": null,
+      "branch": "main",
+      "worktree": null,
+      "baseSha": "3da96f0555ea6484ab7630654af0fc1f6ec90ceb",
+      "candidateSha": "8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+      "deploymentSourceSha": "8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+      "taskStatus": "complete",
+      "readinessVerdict": null,
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [],
+      "reviewFindingIds": [],
+      "approvalReference": null,
+      "validation": [
+        {
+          "checkId": "ancestry-and-fast-forward",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": 0,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-launch/results/P.md"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "agent-work/site-launch/results/P.md",
+          "sha256": "8749a8965f713f768aaaeab56213658916f1c6462753aeb9ce7eb3e422632af3"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
+      }
+    },
+    {
+      "taskId": "R",
+      "attempt": 1,
+      "role": "release_readiness",
+      "model": null,
+      "branch": "pilot/site-launch-records",
+      "worktree": null,
+      "baseSha": "8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+      "candidateSha": "8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+      "deploymentSourceSha": "8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+      "taskStatus": "complete",
+      "readinessVerdict": "PASS",
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [],
+      "reviewFindingIds": [],
+      "approvalReference": null,
+      "rollbackArtifact": {
+        "identity": "pages-unpublished-404",
+        "provenance": "agent-work/site-launch/results/R-rollback.md"
+      },
+      "frozenBatch": {
+        "deploymentSourceSha": "8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+        "deployableArtifactSha256": "495b4b2b4e8c25335184fa994716a888bc9f0980b3196eb633110bde18351eb3",
+        "deploymentConfiguration": [
+          {
+            "path": ".github/workflows/deploy.yml",
+            "sha256": "45fd739663807a7cf325c18ecb57b31ff20decf1d4b61a9a05155a12e800073e"
+          },
+          {
+            "path": "agent-work/site-launch/results/R-dispatch-inputs.json",
+            "sha256": "927b8539ce464e5e7cd1c65b1b1d720f9b2ce972f2f2d39ce52744e8e054650a"
+          },
+          {
+            "path": "agent-work/site-launch/CONTRACT.md",
+            "sha256": "e05c5dd7f929ce60ec4fb4a839991453048d95bde14b131a26c52f3bfd5d1e1b"
+          }
+        ],
+        "validators": [
+          {
+            "path": "scripts/check-site.py",
+            "sha256": "98bd656dd3d8c22341cc18ce6e4e9d209dc418583f1bc1b58e08d18fd5e0a2d5"
+          },
+          {
+            "path": "scripts/validate.sh",
+            "sha256": "f9f79783f5b37cf776cad75328a65d954fb814c26f4e2443ad590c5027e80472"
+          },
+          {
+            "path": "scripts/agent-task.py",
+            "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
+          }
+        ],
+        "rollbackArtifact": {
+          "identity": "pages-unpublished-404",
+          "provenance": "agent-work/site-launch/results/R-rollback.md"
+        },
+        "installedScripts": [],
+        "deploymentTargets": [
+          {
+            "destination": "https://saxton-network.github.io/site",
+            "mode": null
+          }
+        ]
+      },
+      "frozenBatchFingerprint": "23142a14e4f5434621d9362c31934b0c4519e8f7240fc7e333cce12885eed71a",
+      "gitDivergence": {
+        "identical": true,
+        "authoritySha": "8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+        "otherSha": "8377801ebd47f8ce1ec96eac9bd807dc5a876273"
+      },
+      "validation": [
+        {
+          "checkId": "validate-sh",
+          "inputFingerprint": null,
+          "validatorSha256": "f9f79783f5b37cf776cad75328a65d954fb814c26f4e2443ad590c5027e80472",
+          "exitCode": 0,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-launch/results/R.md"
+        },
+        {
+          "checkId": "listed-repositories-public",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": 0,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-launch/results/R.md"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "agent-work/site-launch/results/R.md",
+          "sha256": "fa84cd7019533d0f47ec6ef5688f08bbd6969482d3f92d29769001401d37edb2"
+        },
+        {
+          "path": "agent-work/site-launch/results/R-rollback.md",
+          "sha256": "4507b200d3deb498a4399cb037ba06ebd4e0b7103ccc95cc2458db0493a5f020"
+        },
+        {
+          "path": "agent-work/site-launch/results/R-dispatch-inputs.json",
+          "sha256": "927b8539ce464e5e7cd1c65b1b1d720f9b2ce972f2f2d39ce52744e8e054650a"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
+      }
     }
   ]
 }
