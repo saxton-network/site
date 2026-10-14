@@ -1,5 +1,53 @@
 {
   "workflowVersion": 3,
   "workflowId": "site-upgrade-14",
-  "records": []
+  "records": [
+    {
+      "taskId": "A",
+      "attempt": 1,
+      "role": "implementation",
+      "model": null,
+      "branch": "pilot/site-upgrade-14-impl",
+      "worktree": null,
+      "baseSha": "16c363137b52093fcd014ee00d8c4a8ca570e658",
+      "candidateSha": "dfaa7cb863da02c204b34c4e05d90d9f9660fe97",
+      "deploymentSourceSha": null,
+      "taskStatus": "complete",
+      "readinessVerdict": null,
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [
+        "ADOPTION.md",
+        "AGENTS.md",
+        "agent-work/COORDINATOR.md",
+        "agent-work/RESULT-TEMPLATE.md",
+        "agent-work/WORKFLOW-SPEC.md",
+        "docs/THREAT-MODEL.md",
+        "scripts/agent-task.py"
+      ],
+      "reviewFindingIds": [],
+      "approvalReference": null,
+      "validation": [
+        {
+          "checkId": "validate-ci",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": null,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-upgrade-14/results/A.md"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "agent-work/site-upgrade-14/results/A.md",
+          "sha256": "ae53adf47acfeb6dfd61b1c5a2f98bce018be2995cba007292d30122dc1ced03"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "67fa523bd62cf21ad53d969460074982baff1f5b5e1312a086b953e0138f4434"
+      }
+    }
+  ]
 }
