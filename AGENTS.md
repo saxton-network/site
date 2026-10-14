@@ -65,7 +65,7 @@ These rules were set by the owner. They apply to every file, commit message, bra
 - **No external resources.** The page loads nothing from anywhere: no external stylesheet, font, image, frame, media or other fetched URL.
 - **Links only inside `https://github.com/saxton-network/`.** Every link target starts with that prefix.
 - **`site/` is the published directory.** It contains only `index.html` unless the owner approves a change to this rule.
-- **Git identity.** Commits use the identity already configured for this repository. Do not change `user.name` or `user.email`, and do not commit as any other identity.
+- **Git identity.** Agents commit only as the mandated no-reply commit identity (the one the "Commit metadata" bullet exempts), never as a personal identity. Whoever takes over checks `git config user.name` and `user.email` against this rule before the first commit; if they do not match, stop and ask the owner. Agents make merges into `main` locally under that identity and push them; agents do not use GitHub's merge button or merge API, because those author the merge as the owner's account. This rule binds agents, not the owner's own actions. Existing history is not rewritten.
 
 ## Vendored Workflow files
 
