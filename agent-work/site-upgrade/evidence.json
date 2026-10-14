@@ -321,7 +321,7 @@
       "taskStatus": "failed",
       "readinessVerdict": null,
       "startedAt": "2026-10-14T04:50:04Z",
-      "completedAt": "2026-10-14T04:50:55Z",
+      "completedAt": null,
       "changedPaths": [],
       "reviewFindingIds": [
         "P7-R1"
@@ -350,7 +350,7 @@
       "evidence": [
         {
           "path": "agent-work/site-upgrade/results/V.md",
-          "sha256": "adae50ce55b14247290f1b2cc65a8fd402518d2c18eac080102cbe4f41ddbd9e"
+          "sha256": "450e64d79babe91e2d97890289f8bbb46455fc4912110b8957fa48b96a4a89b2"
         },
         {
           "path": "agent-work/site-upgrade/results/records-review-1.md",
@@ -372,10 +372,10 @@
       "baseSha": "95914a54336983fc48e286b8e16cb6780076d2f2",
       "candidateSha": null,
       "deploymentSourceSha": "95914a54336983fc48e286b8e16cb6780076d2f2",
-      "taskStatus": "in_progress",
+      "taskStatus": "complete",
       "readinessVerdict": null,
       "startedAt": "2026-10-14T05:07:44Z",
-      "completedAt": null,
+      "completedAt": "2026-10-14T05:11:23Z",
       "changedPaths": [
         "agent-work/site-upgrade/B-review.md",
         "agent-work/site-upgrade/PLAN.md",
@@ -397,12 +397,29 @@
           "verdict": "PASS",
           "recordedAt": null,
           "evidencePath": "agent-work/site-upgrade/results/records-repair-1.md"
+        },
+        {
+          "checkId": "records-independent-review-2",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": null,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-upgrade/results/records-review-2.md"
         }
       ],
       "evidence": [
         {
           "path": "agent-work/site-upgrade/results/records-repair-1.md",
           "sha256": "f89908c9a2dcb3ea6594c2a7a9b3bcc806049a39f3334d8f0360f8a02c496dd9"
+        },
+        {
+          "path": "agent-work/site-upgrade/results/records-review-2.md",
+          "sha256": "6806b9ee37484063bf377a225df11df6112b0f8310a948fbc41d4896383d46da"
+        },
+        {
+          "path": "agent-work/site-upgrade/results/V.md",
+          "sha256": "450e64d79babe91e2d97890289f8bbb46455fc4912110b8957fa48b96a4a89b2"
         }
       ],
       "helper": {

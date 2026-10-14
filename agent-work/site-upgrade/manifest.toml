@@ -22,7 +22,7 @@ C = "conditional"
 P = "complete"
 R = "complete"
 J = "failed"
-V = "in_progress"
+V = "complete"
 K = "blocked"
 
 [tasks.A]
