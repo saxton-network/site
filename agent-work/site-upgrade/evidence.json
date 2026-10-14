@@ -261,6 +261,37 @@
         "path": "scripts/agent-task.py",
         "sha256": "67fa523bd62cf21ad53d969460074982baff1f5b5e1312a086b953e0138f4434"
       }
+    },
+    {
+      "taskId": "J",
+      "attempt": 1,
+      "role": "live_deployment",
+      "model": null,
+      "branch": "pilot/site-upgrade-records",
+      "worktree": null,
+      "baseSha": "074b7b3f94592375c9a4aec6e5d1874287a80ac2",
+      "candidateSha": "95914a54336983fc48e286b8e16cb6780076d2f2",
+      "deploymentSourceSha": "95914a54336983fc48e286b8e16cb6780076d2f2",
+      "taskStatus": "in_progress",
+      "readinessVerdict": null,
+      "startedAt": "2026-10-14T04:45:47Z",
+      "completedAt": null,
+      "changedPaths": [],
+      "reviewFindingIds": [],
+      "approvalReference": "agent-work/site-upgrade/results/J-approval.md",
+      "frozenBatchFingerprint": "fcbe26fca2a95d6bcc621dbf27dd27b53eef7bc263c06e254f7404b8a2e1f33d",
+      "runtimeAcceptance": null,
+      "validation": [],
+      "evidence": [
+        {
+          "path": "agent-work/site-upgrade/results/J-approval.md",
+          "sha256": "af5e4e445b3982f96772ff6d6ea92fa7231587c5be2868a56f24fe7cdacdcd32"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "67fa523bd62cf21ad53d969460074982baff1f5b5e1312a086b953e0138f4434"
+      }
     }
   ]
 }
