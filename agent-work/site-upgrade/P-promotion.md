@@ -6,12 +6,16 @@
 
 Under `COORDINATOR.md` "Commands that move refs", in a non-shallow clone (`git rev-parse --is-shallow-repository` prints `false`), with no inherited `GIT_*` variables for the local proofs:
 
-1. `git fetch origin`; assert `origin/main` is `ae90609…`.
+Gates, each exiting before anything moves (run under `set -euo pipefail`, with `SHA` set to the full literal `deploymentSourceSha` of B's latest `passed` record, after any repair round):
+
+0. `if [ "$(git rev-parse --is-shallow-repository)" != false ]; then exit 1; fi`
+   `if [ -z "$SHA" ] || [ "$SHA" != <B's passed deploymentSourceSha, full literal> ]; then exit 1; fi`
+1. `git fetch origin`; `if [ "$(git rev-parse origin/main)" != ae90609244b36f306f924bf5470f21d8cf202bb2 ]; then exit 1; fi`
 2. `if ! GIT_GRAFT_FILE=/dev/null git --no-replace-objects -c core.commitGraph=false -c advice.graftFileDeprecated=false merge-base --is-ancestor <origin/main> <candidate>; then exit 1; fi`
 3. `if [ "$(git rev-list --first-parent <candidate> | grep -cx 8377801ebd47f8ce1ec96eac9bd807dc5a876273)" != 1 ]; then exit 1; fi`
-4. Push the asserted literal SHA: `git push origin <candidate>:refs/heads/main`, never with force.
+4. Only after every gate above has passed, as a separate command with the full literal SHA: `git push origin <SHA>:refs/heads/main`, never with force. Check its exit status.
 5. Verify `git ls-remote origin refs/heads/main` equals the candidate.
-6. Merge `main` into `pilot/site-upgrade-records` (non-force) so later gate checks use the alpha.13 helper.
+6. As a separate step, not chained to the push: merge `main` into `pilot/site-upgrade-records` (non-force) so later gate checks use the alpha.13 helper. Stop on any conflict or failure.
 
 ## Result
 

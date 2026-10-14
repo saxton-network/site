@@ -11,7 +11,10 @@ As `PLAN.md` "Readiness checks (R)":
 - `deploy.yml`, `check-site.py`, `projects.txt` and `validate.sh` byte-identical between v1 and the source;
 - `deploy.yml`'s guard and site check, run locally in a full clone with `origin/main` at the source, pass for v1 and the source; a merged side-branch commit is rejected;
 - both listed repositories public (authenticated `private`/`visibility`; channel recorded);
-- baseline: live page 200 with v1's SHA-256; the `deploy.yml` run IDs; the `github-pages` deployment IDs.
+- baseline: live page 200 with v1's SHA-256; the `deploy.yml` run IDs; the `github-pages` deployment IDs;
+- `site/index.html` at the source hashes to `1f60283e1c442f0fd8e0015787c84febd2b37eabfe83bc9dbea54e7b345f7a35` (decision 2(a));
+- the records branch, after P's merge, contains the source: `merge-base --is-ancestor <source> <records head>` exits 0;
+- record `gitDivergence` with `identical: true` and `authoritySha` = `otherSha` = the source; read the helper's SHA-256 from the file (expected `67fa523b…4434`), never type it.
 
 ## Frozen batch
 
