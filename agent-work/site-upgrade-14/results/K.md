@@ -15,7 +15,7 @@ The scan covered the lines added under `agent-work/site-upgrade-14/` between the
 - **Emails, paths, links:** no email addresses, no local machine paths and no session links.
 - **Names:** no private repository names, no personal names and no model names.
 
-The records branch's 12 commits since the source all use the mandated no-reply identity as author and committer. Their only trailers are the `Co-Authored-By` and `Claude-Session` lines that the "Commit metadata" exemption allows.
+Every commit on the records branch since the source uses the mandated no-reply identity as author and committer. Their only trailers are the `Co-Authored-By` and `Claude-Session` lines that the "Commit metadata" exemption allows.
 
 ## Divergence proof (records head against the source)
 

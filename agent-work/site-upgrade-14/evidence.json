@@ -247,7 +247,7 @@
       "evidence": [
         {
           "path": "agent-work/site-upgrade-14/results/R.md",
-          "sha256": "f1e89d84480db5b0a9aa2db27d78ab156a9e30f3de28dec0e8a3575af9b7c26b"
+          "sha256": "9c8d37ec854fcc89fbfa8cabd473d7f7da72f8ac7d2646faabb226802421d564"
         },
         {
           "path": "agent-work/site-upgrade-14/results/R-rollback-v1.md",
@@ -386,7 +386,7 @@
       "evidence": [
         {
           "path": "agent-work/site-upgrade-14/results/K.md",
-          "sha256": "7f3b88bcae4e57b6e66b0c198d5fb8f904d5e8f9482b198c612347dabf7ed7be"
+          "sha256": "71ef47757c6733b39b87d4007096c58795c1a319e0d1c9f932ce14f82719e6b1"
         }
       ],
       "helper": {

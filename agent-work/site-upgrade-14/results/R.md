@@ -20,7 +20,7 @@ Performed by the coordinator on 2026-10-14. Read-only with respect to `main`, Pa
 | Records branch contains the source | PASS. With no inherited `GIT_*`, the hardened `merge-base --is-ancestor dfaa7cb… <records head>` exits 0. |
 | Listed repositories are public | PASS through the connection (organisation repository search, full objects): `saxton-network/workflow` and `saxton-network/chudley` both show `private: false`, `visibility: public`. `curl` agrees for the workflow repository. For the other repository, the session's proxy refuses `curl` API reads outside this session's repository scope (403). That fallback is recorded as "no fallback", as the plan allows. |
 | Evidence access | PASS. Every acceptance row has a working primary and fallback; see below. |
-| Dispatch client | The connection's Actions run-trigger tool, for dispatch and cancel, is available and was not used. The connection acts as `caffeinatedcultist`, the account that made the earlier dispatches. |
+| Dispatch client | The connection's Actions run-trigger tool, for dispatch and cancel, is available and was not used. The connection acts as the owner's GitHub account, the account that made the earlier dispatches. |
 | Baseline | The live page at 2026-10-14T08:10:50Z returns 200 with SHA-256 `495b4b2b…51eb3` (v1). There are 5 `deploy.yml` runs and 5 `github-pages` deployments; their IDs are in `R-baseline.json`. |
 | Local git | `git version 2.43.0`. |
 
