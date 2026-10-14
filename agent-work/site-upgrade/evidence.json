@@ -79,6 +79,45 @@
         "path": "scripts/agent-task.py",
         "sha256": "c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655"
       }
+    },
+    {
+      "taskId": "P",
+      "attempt": 1,
+      "role": "authority_promotion",
+      "model": null,
+      "branch": "main",
+      "worktree": null,
+      "baseSha": "ae90609244b36f306f924bf5470f21d8cf202bb2",
+      "candidateSha": "95914a54336983fc48e286b8e16cb6780076d2f2",
+      "deploymentSourceSha": "95914a54336983fc48e286b8e16cb6780076d2f2",
+      "taskStatus": "complete",
+      "readinessVerdict": null,
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [],
+      "reviewFindingIds": [],
+      "approvalReference": null,
+      "validation": [
+        {
+          "checkId": "ancestry-and-fast-forward",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": 0,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-upgrade/results/P.md"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "agent-work/site-upgrade/results/P.md",
+          "sha256": "f61dacc1539ea6dc872ba04cd99b40e5b25f5d08d13a6af7971b84b1baaf3cef"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "67fa523bd62cf21ad53d969460074982baff1f5b5e1312a086b953e0138f4434"
+      }
     }
   ]
 }
