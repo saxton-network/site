@@ -323,7 +323,7 @@ The question: "Approve, and can you be reached within about 30 minutes if the ro
 
 ## Clarifications
 
-*(none yet)*
+- **2026-10-14, during task A (a correction, nothing weakened).** "What changes" says ambiguity 7 (a dangling reference) "no longer applies". In fact the alpha.13 threat model still mentions `docs/PILOT-HISTORY.md`. What changed is that `docs/ADOPTING.md` now says such references point back to Workflow. `ADOPTION.md`'s Upgrades section therefore lists 7 as answered, not as gone. The next independent review (B) checks this, and the next owner preview lists it.
 
 ## Out of scope
 
