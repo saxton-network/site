@@ -118,6 +118,149 @@
         "path": "scripts/agent-task.py",
         "sha256": "67fa523bd62cf21ad53d969460074982baff1f5b5e1312a086b953e0138f4434"
       }
+    },
+    {
+      "taskId": "R",
+      "attempt": 1,
+      "role": "release_readiness",
+      "model": null,
+      "branch": "pilot/site-upgrade-records",
+      "worktree": null,
+      "baseSha": "95914a54336983fc48e286b8e16cb6780076d2f2",
+      "candidateSha": "95914a54336983fc48e286b8e16cb6780076d2f2",
+      "deploymentSourceSha": "95914a54336983fc48e286b8e16cb6780076d2f2",
+      "taskStatus": "complete",
+      "readinessVerdict": "PASS",
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [],
+      "reviewFindingIds": [],
+      "approvalReference": null,
+      "rollbackArtifact": {
+        "identity": "git:8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+        "provenance": "agent-work/site-upgrade/results/R-rollback-v1.md"
+      },
+      "frozenBatch": {
+        "deploymentSourceSha": "95914a54336983fc48e286b8e16cb6780076d2f2",
+        "deployableArtifactSha256": "1f60283e1c442f0fd8e0015787c84febd2b37eabfe83bc9dbea54e7b345f7a35",
+        "deploymentConfiguration": [
+          {
+            "path": ".github/workflows/deploy.yml",
+            "sha256": "45fd739663807a7cf325c18ecb57b31ff20decf1d4b61a9a05155a12e800073e"
+          },
+          {
+            "path": "agent-work/site-upgrade/results/R-dispatch-inputs.json",
+            "sha256": "6885c1e7e99229cda6ec3afaf5b74a31280b66717600c29983ace0433a3d4535"
+          },
+          {
+            "path": "agent-work/site-upgrade/results/R-rollback-inputs.json",
+            "sha256": "927b8539ce464e5e7cd1c65b1b1d720f9b2ce972f2f2d39ce52744e8e054650a"
+          },
+          {
+            "path": "agent-work/site-upgrade/CONTRACT.md",
+            "sha256": "f409eccb3cc802ed0b87d8445cc29ea61b2ba5de4094ad06a3708d99d30ea685"
+          }
+        ],
+        "validators": [
+          {
+            "path": "scripts/check-site.py",
+            "sha256": "98bd656dd3d8c22341cc18ce6e4e9d209dc418583f1bc1b58e08d18fd5e0a2d5"
+          },
+          {
+            "path": "scripts/projects.txt",
+            "sha256": "4bca413cc05467d6ae84953cda875e77594fb5da866376638925ee254bf949f7"
+          },
+          {
+            "path": "scripts/validate.sh",
+            "sha256": "f9f79783f5b37cf776cad75328a65d954fb814c26f4e2443ad590c5027e80472"
+          },
+          {
+            "path": "scripts/agent-task.py",
+            "sha256": "67fa523bd62cf21ad53d969460074982baff1f5b5e1312a086b953e0138f4434"
+          }
+        ],
+        "rollbackArtifact": {
+          "identity": "git:8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+          "provenance": "agent-work/site-upgrade/results/R-rollback-v1.md"
+        },
+        "installedScripts": [],
+        "deploymentTargets": [
+          {
+            "destination": "https://saxton-network.github.io/site",
+            "mode": null
+          }
+        ]
+      },
+      "frozenBatchFingerprint": "fcbe26fca2a95d6bcc621dbf27dd27b53eef7bc263c06e254f7404b8a2e1f33d",
+      "gitDivergence": {
+        "identical": true,
+        "authoritySha": "95914a54336983fc48e286b8e16cb6780076d2f2",
+        "otherSha": "95914a54336983fc48e286b8e16cb6780076d2f2"
+      },
+      "validation": [
+        {
+          "checkId": "validate-sh",
+          "inputFingerprint": null,
+          "validatorSha256": "f9f79783f5b37cf776cad75328a65d954fb814c26f4e2443ad590c5027e80472",
+          "exitCode": 0,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-upgrade/results/R.md"
+        },
+        {
+          "checkId": "listed-repositories-public",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": 0,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-upgrade/results/R.md"
+        },
+        {
+          "checkId": "rollback-guard-local",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": 0,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-upgrade/results/R.md"
+        },
+        {
+          "checkId": "records-contain-source",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": 0,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-upgrade/results/R.md"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "agent-work/site-upgrade/results/R.md",
+          "sha256": "44048bf8c0c7f98e6615a7786cea3ce72c7a4d639fd1f9de642de63ffd81de9f"
+        },
+        {
+          "path": "agent-work/site-upgrade/results/R-rollback-v1.md",
+          "sha256": "3d7f21d80a7dc196d98dc7b7720eee6019e87f6e46b30b080c49814dfdc27e68"
+        },
+        {
+          "path": "agent-work/site-upgrade/results/R-dispatch-inputs.json",
+          "sha256": "6885c1e7e99229cda6ec3afaf5b74a31280b66717600c29983ace0433a3d4535"
+        },
+        {
+          "path": "agent-work/site-upgrade/results/R-rollback-inputs.json",
+          "sha256": "927b8539ce464e5e7cd1c65b1b1d720f9b2ce972f2f2d39ce52744e8e054650a"
+        },
+        {
+          "path": "agent-work/site-upgrade/results/R-baseline.json",
+          "sha256": "7cace94818990cae5123bd7d89049a5761ded502cf0257a5e80e7a11aa86d4b4"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "67fa523bd62cf21ad53d969460074982baff1f5b5e1312a086b953e0138f4434"
+      }
     }
   ]
 }
