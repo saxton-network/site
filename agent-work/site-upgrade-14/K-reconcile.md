@@ -4,7 +4,7 @@
 
 ## Work
 
-1. **Verify,** with the evidence clients. K's reads come after acceptance, so there is no repeat window.
+1. **Verify,** with the evidence clients. K's reads come after acceptance: a read that returns no evidence stops K and is reported.
    - `main` equals the source, or is a proven additive descendant classified as `COORDINATOR.md` requires. Stop if it is neither.
    - The live page bytes equal v2.
 2. **Secrets and privacy scan** of the records: no private names, hosts, people or emails, and no tokens.

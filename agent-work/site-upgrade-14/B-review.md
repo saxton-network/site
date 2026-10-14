@@ -18,7 +18,7 @@
    - The tag is lightweight at `02c771a`.
    - The `ADOPTION.md` rows and hashes are right, its history is kept, and its Upgrades entry is accurate and prose-only.
    - No stale `84d826a` remains in it, except in history text.
-2. **Nothing else changed.**
+2. **Nothing else changed.** Workflow's own `AGENTS.md` is unchanged between `84d826a` and `02c771a`, so the site's `AGENTS.md` takes no vendored-rule change.
    - Only the five vendored files, `ADOPTION.md` and `AGENTS.md` changed.
    - The `AGENTS.md` change is exactly the decision 2(a) text.
    - `site/index.html`, `scripts/check-site.py`, `scripts/projects.txt`, `scripts/validate.sh` and `.github/workflows/deploy.yml` are byte-identical to `16c3631`.

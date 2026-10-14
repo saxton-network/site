@@ -16,7 +16,7 @@
    - all eight rows, in the four-column form, carry commit `02c771a…` and the new hashes;
    - the "Copied files" sentence names `02c771a`;
    - "Upgrades" gains a second, prose-only entry. No backticked 64-hex value may appear in a table row that starts with a backtick.
-4. **Reword the "Git identity" bullet in `AGENTS.md`** to exactly the text in `PLAN.md` (decision 2(a)).
+4. **Reword the "Git identity" bullet in `AGENTS.md`** to exactly the quoted bullet in `PLAN.md` (decision 2(a)); the paragraph after it is explanation and is not copied.
 5. **Change nothing else.** `site/index.html` stays v2.
 
 ## Validation

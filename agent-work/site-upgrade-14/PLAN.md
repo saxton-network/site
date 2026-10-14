@@ -1,6 +1,6 @@
 # Plan: upgrade `saxton-network/site` to Workflow v0.1.0-alpha.14 and put v2 live (Pilot 9)
 
-Status: revision 2, approved by the owner on 2026-10-14 with owner decisions 1–5; decision 2 is (a), reword the site's "Git identity" rule. Revision 2 applies plan-review round 1 (M1–M5, L1–L8, N1–N5); round 2 approved it, and its optional L9 and N6 are folded in as clarifications that make the plan stricter. It is modelled on the approved Pilot 7 plan (`agent-work/site-upgrade/PLAN.md` in the site repository). Differences are called out.
+Status: revision 2, approved by the owner on 2026-10-14 with owner decisions 1–5; decision 2 is (a), reword the site's "Git identity" rule. Revision 2 applies plan-review round 1 (M1–M5, L1–L8, N1–N5); round 2 approved it, and its optional L9 and N6 were folded in before the owner's approval. It is modelled on the approved Pilot 7 plan (`agent-work/site-upgrade/PLAN.md` in the site repository). Differences are called out.
 
 ## Goal
 

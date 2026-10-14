@@ -32,7 +32,7 @@
 - Do not dispatch V.
 - Record V `failed` with "rollback not needed" and the reason, before any merge. K is not recorded and stays blocked.
 - Ask the owner how to continue.
-- Only after the owner's go-ahead, land the records as `K-reconcile.md` steps 2–4 describe, with a deviation note for the expected `protected_change`.
+- Only after the owner's go-ahead, land the records as `K-reconcile.md` steps 2–4 describe (step 1 and the "Record K `complete`" line do not apply; V is already recorded `failed`), with a deviation note for the expected `protected_change`.
 - End state: "stopped; nothing published, proven".
 
 ## Result
