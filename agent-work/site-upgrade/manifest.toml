@@ -21,8 +21,8 @@ B = "passed"
 C = "conditional"
 P = "complete"
 R = "complete"
-J = "in_progress"
-V = "blocked"
+J = "failed"
+V = "complete"
 K = "blocked"
 
 [tasks.A]
