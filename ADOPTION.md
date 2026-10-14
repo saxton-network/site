@@ -1,23 +1,23 @@
 # Workflow adoption record
 
-This repository adopts the Workflow framework from the public repository `saxton-network/workflow` at commit `3d38b27749aa0d5ed4cd751ffe64a4359f4f330a`. The adoption followed Workflow's README "Quick start" and the documents it references, reading only the files exported from that commit. It was upgraded to release `v0.1.0-alpha.13` (commit `84d826a40b8f8567439ab15eb270a1a752f92a82`) on 2026-10-14; see "Upgrades".
+This repository adopts the Workflow framework from the public repository `saxton-network/workflow` at commit `3d38b27749aa0d5ed4cd751ffe64a4359f4f330a`. The adoption followed Workflow's README "Quick start" and the documents it references, reading only the files exported from that commit. It was upgraded to release `v0.1.0-alpha.13` (commit `84d826a40b8f8567439ab15eb270a1a752f92a82`) on 2026-10-14, and then to release `v0.1.0-alpha.14` (commit `02c771a7c7d71e2303c186d0c150e903a524e949`) the same day; see "Upgrades".
 
 `bash scripts/validate.sh` verifies every hash in the table below against the files in this repository.
 
 ## Copied files
 
-Each file was copied byte for byte. None was modified. The path in this repository equals the source path. Since the upgrade, every row names the release commit `84d826a`.
+Each file was copied byte for byte. None was modified. The path in this repository equals the source path. Since the upgrade to alpha.14, every row names the release commit `02c771a`.
 
 | Path in this repository | Source path | Source commit | SHA-256 |
 | --- | --- | --- | --- |
-| `agent-work/README.md` | `agent-work/README.md` | `84d826a40b8f8567439ab15eb270a1a752f92a82` | `bfe51802bb33e9f2a01ac548a5c4974e367ab674050cd0afc0e44a9f1aef6c45` |
-| `agent-work/WORKFLOW-SPEC.md` | `agent-work/WORKFLOW-SPEC.md` | `84d826a40b8f8567439ab15eb270a1a752f92a82` | `7ba454493d6cec691b06c0e6113a0dc5db6705b86b9f1805e919e61b3a8f1ffc` |
-| `agent-work/COORDINATOR.md` | `agent-work/COORDINATOR.md` | `84d826a40b8f8567439ab15eb270a1a752f92a82` | `7a9c98d9ea6dc4686b6743594c8cec3839caa637ff1b960bbaf5f0960a143f04` |
-| `agent-work/RESULT-TEMPLATE.md` | `agent-work/RESULT-TEMPLATE.md` | `84d826a40b8f8567439ab15eb270a1a752f92a82` | `9c8dd149d8ef51cccffad24b77da746248aa9a739e5cf2a8fdd4b46d92fd585b` |
-| `agent-work/EVIDENCE-MANIFEST.md` | `agent-work/EVIDENCE-MANIFEST.md` | `84d826a40b8f8567439ab15eb270a1a752f92a82` | `c43b012044c18058d99c1d5c1b194174c23e5e9a8fcdaf5a8b34a2a2fe514242` |
-| `docs/THREAT-MODEL.md` | `docs/THREAT-MODEL.md` | `84d826a40b8f8567439ab15eb270a1a752f92a82` | `132d933a9e1a48676c0126498daa5b495993253802e57f95afe2be061bf80fb1` |
-| `docs/agent-worktrees.md` | `docs/agent-worktrees.md` | `84d826a40b8f8567439ab15eb270a1a752f92a82` | `9fb51de1c35e0ad98d00a3ce6a58bb3d66b9f5c351ab0685c1031b55ab9189d1` |
-| `scripts/agent-task.py` | `scripts/agent-task.py` | `84d826a40b8f8567439ab15eb270a1a752f92a82` | `67fa523bd62cf21ad53d969460074982baff1f5b5e1312a086b953e0138f4434` |
+| `agent-work/README.md` | `agent-work/README.md` | `02c771a7c7d71e2303c186d0c150e903a524e949` | `bfe51802bb33e9f2a01ac548a5c4974e367ab674050cd0afc0e44a9f1aef6c45` |
+| `agent-work/WORKFLOW-SPEC.md` | `agent-work/WORKFLOW-SPEC.md` | `02c771a7c7d71e2303c186d0c150e903a524e949` | `3c3b24edc4f3f7ff33b9208321763b37ae35d4641bd16a062c071f8184df9097` |
+| `agent-work/COORDINATOR.md` | `agent-work/COORDINATOR.md` | `02c771a7c7d71e2303c186d0c150e903a524e949` | `1ac891f268865b76c789bc7ef46ddd56e3b33eb662bdb2d40852a83eb0591336` |
+| `agent-work/RESULT-TEMPLATE.md` | `agent-work/RESULT-TEMPLATE.md` | `02c771a7c7d71e2303c186d0c150e903a524e949` | `680df22f358aad7c062a14e1964200d9281857625b64ccda6e8717806492f694` |
+| `agent-work/EVIDENCE-MANIFEST.md` | `agent-work/EVIDENCE-MANIFEST.md` | `02c771a7c7d71e2303c186d0c150e903a524e949` | `c43b012044c18058d99c1d5c1b194174c23e5e9a8fcdaf5a8b34a2a2fe514242` |
+| `docs/THREAT-MODEL.md` | `docs/THREAT-MODEL.md` | `02c771a7c7d71e2303c186d0c150e903a524e949` | `7ac9c1a5c7920f4a2dbd2ee92051d3f6724116dba8b207c3ac86590b577cf533` |
+| `docs/agent-worktrees.md` | `docs/agent-worktrees.md` | `02c771a7c7d71e2303c186d0c150e903a524e949` | `9fb51de1c35e0ad98d00a3ce6a58bb3d66b9f5c351ab0685c1031b55ab9189d1` |
+| `scripts/agent-task.py` | `scripts/agent-task.py` | `02c771a7c7d71e2303c186d0c150e903a524e949` | `8ec1b22cd97d10e1873ed9dfa83a37fa58f036914452f1af6508564215748f3c` |
 
 Why these files:
 
@@ -63,6 +63,17 @@ These are not copies and have no recorded hash: `AGENTS.md` (Workflow's `AGENTS.
   - Partly answered: 6, where the guide covers local threat models and when a guard review stops, but the copied threat model still describes only Workflow; and 10, where the guide allows exact tags or commit SHAs without choosing.
   - Not answered: 8, 12, 13, 14, 15, 18 and 19.
 - **Row format.** `docs/ADOPTING.md` shows a three-column provenance row. This repository keeps its four-column form, with the source path, because `scripts/validate.sh` requires it. Hash values for the upgrade are kept out of other table rows, because the gate reads any table row starting with a backtick as a provenance row.
+
+**2026-10-14: from `v0.1.0-alpha.13` to `v0.1.0-alpha.14`.**
+
+- **Source.** The files were copied from the published release asset `workflow-v0.1.0-alpha.14.zip`, whose SHA-256 was checked on download as 1b87fa4a7034e58efaf0c8479b93bb82d4d3bad2c8fb3b467da4f27627d98355. The release tag `v0.1.0-alpha.14` is a lightweight tag at `02c771a7c7d71e2303c186d0c150e903a524e949`, and every copied file is byte-identical to the file at that commit.
+- **What changed.** Five files changed: `agent-work/WORKFLOW-SPEC.md`, `agent-work/COORDINATOR.md`, `agent-work/RESULT-TEMPLATE.md`, `docs/THREAT-MODEL.md` and `scripts/agent-task.py`. Three are byte-identical to the earlier copies: `agent-work/README.md`, `agent-work/EVIDENCE-MANIFEST.md` and `docs/agent-worktrees.md`. Workflow's `AGENTS.md` did not change between the two commits.
+- **This repository's `AGENTS.md`.** By the owner's decision (workflow `site-upgrade-14`, decision 2(a)), the "Git identity" rule now names the identity agents use without naming anyone, requires a check after a handover, and keeps merges local, as alpha.14's `docs/ADOPTING.md` section 3 advises. The commit-metadata decision of ambiguity 17 already sits next to the naming rule in `AGENTS.md`.
+- **Procedure.** Workflow's `docs/ADOPTING.md` section 2, as before.
+- **The ambiguities below, against alpha.14.** The lists above are unchanged, with three notes:
+  - 17 is now answered more fully: the guide says to write such a decision next to the rule in `AGENTS.md`, and to name the commit identity without naming a person;
+  - the row-format note is now covered by the guide, which says to keep a working gate's row form;
+  - the guide's section 7 now asks readiness to prove the client that reads a deploy's evidence, which the `site-upgrade-14` workflow does.
 
 ## Ambiguities
 
