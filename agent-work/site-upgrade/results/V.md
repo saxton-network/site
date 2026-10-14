@@ -4,7 +4,7 @@ Performed by the coordinator on 2026-10-14 under `results/J-approval.md`, which 
 
 **Rollback acceptance: PASS. End state: stopped after verified rollback.**
 
-Original records landing is blocked by independent-review finding P7-R1. A clean replacement records branch is prepared for re-review by the same independent reviewer and separate owner approval; no replacement review pass or merge is claimed. The rollback acceptance remains PASS.
+Original records history is blocked from landing by independent-review finding P7-R1. The clean replacement passed re-review by the same independent reviewer and remains unmerged, pending confirmation of the final exact head and separate owner approval. The rollback acceptance remains PASS.
 
 ## Why rollback was required
 

@@ -50,3 +50,7 @@ Stopped at the assigned repair boundary with all edits uncommitted.
 ## Coordinator integration
 
 The first V record retains rollback acceptance PASS but is marked failed at the records-review stage, with P7-R1 and the failed review linked. A second V record is a records-only repair attempt on the clean branch, not another rollback or deployment. Its status is in_progress until the same reviewer accepts the exact replacement. The original records branch and its commits remain preserved, while the new branch adds one clean snapshot above the source. The coordinator updated only workflow records and their evidence hashes. No live action or main ref change is authorized by this repair.
+
+## Final status-wording repair
+
+The same reviewer found a Low documentation inconsistency in the final metadata descendant: V's introductory paragraph still said replacement re-review was pending, while later sections correctly recorded its PASS. The separate repair role corrected only that paragraph to preserve the original history blocker, state the replacement re-review PASS, and keep final-head confirmation, owner approval and merge pending. The coordinator refreshed the affected evidence hashes. No frozen input, live code, validator or deployment state changed.

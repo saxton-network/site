@@ -350,7 +350,7 @@
       "evidence": [
         {
           "path": "agent-work/site-upgrade/results/V.md",
-          "sha256": "450e64d79babe91e2d97890289f8bbb46455fc4912110b8957fa48b96a4a89b2"
+          "sha256": "9dd446aa9189f8bf5fa37e43b79b5f955131670d66118d8db9b4583f223dabbc"
         },
         {
           "path": "agent-work/site-upgrade/results/records-review-1.md",
@@ -411,7 +411,7 @@
       "evidence": [
         {
           "path": "agent-work/site-upgrade/results/records-repair-1.md",
-          "sha256": "f89908c9a2dcb3ea6594c2a7a9b3bcc806049a39f3334d8f0360f8a02c496dd9"
+          "sha256": "fe62c84ce4273c25a2eb301573ceeee737dac53b4166bba5eb998d0605e1f851"
         },
         {
           "path": "agent-work/site-upgrade/results/records-review-2.md",
@@ -419,7 +419,7 @@
         },
         {
           "path": "agent-work/site-upgrade/results/V.md",
-          "sha256": "450e64d79babe91e2d97890289f8bbb46455fc4912110b8957fa48b96a4a89b2"
+          "sha256": "9dd446aa9189f8bf5fa37e43b79b5f955131670d66118d8db9b4583f223dabbc"
         }
       ],
       "helper": {
