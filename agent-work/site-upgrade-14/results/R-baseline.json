@@ -1,0 +1,33 @@
+{
+  "recordedAt": "2026-10-14T08:10:50Z",
+  "livePage": {
+    "url": "https://saxton-network.github.io/site/",
+    "fetch": "curl -sS --compressed '<url>?cb=<nonce>'",
+    "status": 200,
+    "sha256": "495b4b2b4e8c25335184fa994716a888bc9f0980b3196eb633110bde18351eb3",
+    "version": "v1"
+  },
+  "deployRuns": {
+    "workflow": ".github/workflows/deploy.yml",
+    "count": 5,
+    "ids": [
+      38513444503,
+      38513237296,
+      38416947644,
+      38416735077,
+      38410452425
+    ]
+  },
+  "githubPagesDeployments": {
+    "request": "GET /repos/saxton-network/site/deployments?environment=github-pages&per_page=100",
+    "count": 5,
+    "ids": [
+      7057135298,
+      7057104677,
+      7041777317,
+      7041742077,
+      7040675239
+    ]
+  },
+  "main": "dfaa7cb863da02c204b34c4e05d90d9f9660fe97"
+}
