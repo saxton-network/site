@@ -79,6 +79,45 @@
         "path": "scripts/agent-task.py",
         "sha256": "67fa523bd62cf21ad53d969460074982baff1f5b5e1312a086b953e0138f4434"
       }
+    },
+    {
+      "taskId": "P",
+      "attempt": 1,
+      "role": "authority_promotion",
+      "model": null,
+      "branch": "main",
+      "worktree": null,
+      "baseSha": "16c363137b52093fcd014ee00d8c4a8ca570e658",
+      "candidateSha": "dfaa7cb863da02c204b34c4e05d90d9f9660fe97",
+      "deploymentSourceSha": "dfaa7cb863da02c204b34c4e05d90d9f9660fe97",
+      "taskStatus": "complete",
+      "readinessVerdict": null,
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [],
+      "reviewFindingIds": [],
+      "approvalReference": null,
+      "validation": [
+        {
+          "checkId": "ancestry-and-fast-forward",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": 0,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-upgrade-14/results/P.md"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "agent-work/site-upgrade-14/results/P.md",
+          "sha256": "09d165e322cd79834dcffb7c6342d7f90f290a7e3a69da4384d0f1fda32014cb"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "8ec1b22cd97d10e1873ed9dfa83a37fa58f036914452f1af6508564215748f3c"
+      }
     }
   ]
 }
