@@ -10,7 +10,8 @@
 2. **Dispatch** `R-dispatch-inputs.json` once, as a tool call of its own. If it errors or no single new run appears within 2 minutes, never dispatch again; stop and ask the owner.
 3. **Wait** per `CONTRACT.md` "Dispatch" (45 minutes; then cancel and up to 10 more minutes).
 4. **Runtime acceptance:** checks 1 and 2 in order, stopping at the first failure; always read check 3. A wrong run follows `CONTRACT.md` "A wrong run".
-5. **On failure:** run `completed` first, unless the post-cancel bound expires, in which case record J `failed` with `liveStateChanged: null` per `CONTRACT.md` and stop (V does not dispatch; the owner decides); record J `failed` with `runtimeAcceptance: "FAIL"` and `liveStateChanged` per `CONTRACT.md` (one-line reason when `false`); tell the owner plainly what is live and what happens next.
+5. **On failure, normal path:** make sure the run is `completed`; record J `failed` with `runtimeAcceptance: "FAIL"` and `liveStateChanged` per `CONTRACT.md` (one-line reason when `false`); tell the owner plainly what is live and what happens next.
+6. **On failure, expired post-cancel bound:** record J `failed` with `runtimeAcceptance: "FAIL"` and `liveStateChanged: null` per `CONTRACT.md`, and stop. V does not dispatch; the owner decides.
 
 Cancels: the only approved cancel is for a run still going after the 45-minute wait; no other cancel is approved. Any dated plan clarifications in force are listed in the approval record.
 
