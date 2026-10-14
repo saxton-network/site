@@ -23,7 +23,7 @@ P = "complete"
 R = "complete"
 J = "complete"
 V = "blocked"
-K = "pending"
+K = "complete"
 
 [tasks.A]
 kind = "implementation"

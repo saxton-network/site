@@ -345,6 +345,54 @@
         "sha256": "8ec1b22cd97d10e1873ed9dfa83a37fa58f036914452f1af6508564215748f3c"
       },
       "runtimeAcceptance": "PASS"
+    },
+    {
+      "taskId": "K",
+      "attempt": 1,
+      "role": "final_reconciliation",
+      "model": null,
+      "branch": "pilot/site-upgrade-14-records",
+      "worktree": null,
+      "baseSha": "dfaa7cb863da02c204b34c4e05d90d9f9660fe97",
+      "candidateSha": "dfaa7cb863da02c204b34c4e05d90d9f9660fe97",
+      "deploymentSourceSha": "dfaa7cb863da02c204b34c4e05d90d9f9660fe97",
+      "taskStatus": "complete",
+      "readinessVerdict": null,
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [],
+      "reviewFindingIds": [],
+      "approvalReference": null,
+      "validation": [
+        {
+          "checkId": "refs-and-live-page",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": 0,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-upgrade-14/results/K.md"
+        },
+        {
+          "checkId": "secrets-scan",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": 0,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-upgrade-14/results/K.md"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "agent-work/site-upgrade-14/results/K.md",
+          "sha256": "7f3b88bcae4e57b6e66b0c198d5fb8f904d5e8f9482b198c612347dabf7ed7be"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "8ec1b22cd97d10e1873ed9dfa83a37fa58f036914452f1af6508564215748f3c"
+      }
     }
   ]
 }
