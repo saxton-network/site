@@ -14,11 +14,11 @@
 
 | Path | Before | After |
 | --- | --- | --- |
-| `agent-work/WORKFLOW-SPEC.md` | `7ba45449…a8f1ffc` | `3c3b24ed…84d9097` |
-| `agent-work/COORDINATOR.md` | `7a9c98d9…0a143f04` | `1ac891f2…0eb0591336` |
-| `agent-work/RESULT-TEMPLATE.md` | `9c8dd149…fd585b` | `680df22f…06492f694` |
-| `docs/THREAT-MODEL.md` | `132d933a…e061bf80fb1` | `7ac9c1a5…a2f6724116dba` |
-| `scripts/agent-task.py` | `67fa523b…138f4434` | `8ec1b22c…215748f3c` |
+| `agent-work/WORKFLOW-SPEC.md` | `7ba45449…3a8f1ffc` | `3c3b24ed…84df9097` |
+| `agent-work/COORDINATOR.md` | `7a9c98d9…0a143f04` | `1ac891f2…b0591336` |
+| `agent-work/RESULT-TEMPLATE.md` | `9c8dd149…92fd585b` | `680df22f…6492f694` |
+| `docs/THREAT-MODEL.md` | `132d933a…1bf80fb1` | `7ac9c1a5…577cf533` |
+| `scripts/agent-task.py` | `67fa523b…138f4434` | `8ec1b22c…15748f3c` |
 
 `agent-work/README.md`, `agent-work/EVIDENCE-MANIFEST.md` and `docs/agent-worktrees.md` are byte-identical to the earlier copies.
 
