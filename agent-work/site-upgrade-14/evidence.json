@@ -48,6 +48,37 @@
         "path": "scripts/agent-task.py",
         "sha256": "67fa523bd62cf21ad53d969460074982baff1f5b5e1312a086b953e0138f4434"
       }
+    },
+    {
+      "taskId": "B",
+      "attempt": 1,
+      "role": "independent_review",
+      "model": null,
+      "branch": "pilot/site-upgrade-14-records",
+      "worktree": null,
+      "baseSha": "16c363137b52093fcd014ee00d8c4a8ca570e658",
+      "candidateSha": "dfaa7cb863da02c204b34c4e05d90d9f9660fe97",
+      "deploymentSourceSha": "dfaa7cb863da02c204b34c4e05d90d9f9660fe97",
+      "taskStatus": "passed",
+      "readinessVerdict": null,
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [],
+      "reviewFindingIds": [
+        "N1"
+      ],
+      "approvalReference": null,
+      "validation": [],
+      "evidence": [
+        {
+          "path": "agent-work/site-upgrade-14/results/B-1.md",
+          "sha256": "96c2a5ba2b13d50c1da361c22c76d523a1f94647b7689ae0780eea846ca58745"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "67fa523bd62cf21ad53d969460074982baff1f5b5e1312a086b953e0138f4434"
+      }
     }
   ]
 }
