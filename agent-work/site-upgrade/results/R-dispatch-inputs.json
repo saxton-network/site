@@ -1,0 +1,9 @@
+{
+  "repository": "saxton-network/site",
+  "workflow": ".github/workflows/deploy.yml",
+  "workflowId": "deploy.yml",
+  "ref": "main",
+  "inputs": {
+    "sha": "95914a54336983fc48e286b8e16cb6780076d2f2"
+  }
+}
