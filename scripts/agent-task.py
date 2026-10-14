@@ -10,6 +10,7 @@ import hashlib
 import ipaddress
 import itertools
 import json
+import os
 import re
 import sys
 from pathlib import Path
@@ -732,8 +733,28 @@ def _dependencies_ready(task_id: str, data: dict) -> bool:
     return True
 
 
+def rollback_not_needed(task_id: str, data: dict, evidence_path: Path | None = None) -> bool:
+    """A task that runs after a failed live attempt waits while that attempt recorded no live change."""
+    deployment = data.get("deployment")
+    task = data.get("tasks", {}).get(task_id, {})
+    required = task.get("required_status") if isinstance(task, dict) else None
+    if data.get("workflow_version") != 3 or not isinstance(deployment, dict) or not isinstance(required, dict):
+        return False
+    live_id = deployment.get("live_task")
+    if not isinstance(live_id, str) or required.get(live_id) != "failed":
+        return False
+    records_data = _read_evidence(data, evidence_path)
+    if records_data is None:
+        return False
+    live_records = [record for record in records_data["records"] if record.get("taskId") == live_id]
+    # Only an explicit false counts; true, null, a missing field or any other value leaves the rollback to the contract.
+    return bool(live_records) and live_records[-1].get("liveStateChanged") is False
+
+
 def task_ready(task_id: str, data: dict, evidence_path: Path | None = None) -> bool:
     if not _dependencies_ready(task_id, data):
+        return False
+    if rollback_not_needed(task_id, data, evidence_path):
         return False
     task = data["tasks"][task_id]
     if data.get("workflow_version") == 3 and task.get("kind") == "live_deployment":
@@ -878,6 +899,10 @@ def print_task(phase: str, task_id: str, data: dict) -> None:
         else:
             print("Coordinator handoff only: verify actual human approval, direct Git refs, and fresh live drift before dispatch.")
         return
+    if rollback_not_needed(task_id, data):
+        print("The latest live attempt recorded liveStateChanged: false, so no rollback is needed. Do not dispatch "
+              "this task; record that no rollback was needed and ask the owner how to continue.")
+        return
     print(
         f"In the adopting repository, follow agent-work/README.md and execute "
         f"{phase.replace('phase', 'Phase ')} Task {task_id}. Stop at its completion boundary."
@@ -938,4 +963,12 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    try:
+        status = main()
+        if sys.stdout is not None:
+            sys.stdout.flush()
+    except BrokenPipeError:
+        # The reader closed the pipe early (for example `| head`): exit quietly, without a traceback.
+        os.dup2(os.open(os.devnull, os.O_WRONLY), sys.stdout.fileno())
+        sys.exit(1)
+    sys.exit(status)

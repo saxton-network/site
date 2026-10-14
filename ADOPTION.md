@@ -1,23 +1,23 @@
 # Workflow adoption record
 
-This repository adopts the Workflow framework from the public repository `saxton-network/workflow` at commit `3d38b27749aa0d5ed4cd751ffe64a4359f4f330a`. The adoption followed Workflow's README "Quick start" and the documents it references, reading only the files exported from that commit.
+This repository adopts the Workflow framework from the public repository `saxton-network/workflow` at commit `3d38b27749aa0d5ed4cd751ffe64a4359f4f330a`. The adoption followed Workflow's README "Quick start" and the documents it references, reading only the files exported from that commit. It was upgraded to release `v0.1.0-alpha.13` (commit `84d826a40b8f8567439ab15eb270a1a752f92a82`) on 2026-10-14; see "Upgrades".
 
 `bash scripts/validate.sh` verifies every hash in the table below against the files in this repository.
 
 ## Copied files
 
-Each file was copied byte for byte. None was modified. The path in this repository equals the source path.
+Each file was copied byte for byte. None was modified. The path in this repository equals the source path. Since the upgrade, every row names the release commit `84d826a`.
 
 | Path in this repository | Source path | Source commit | SHA-256 |
 | --- | --- | --- | --- |
-| `agent-work/README.md` | `agent-work/README.md` | `3d38b27749aa0d5ed4cd751ffe64a4359f4f330a` | `bfe51802bb33e9f2a01ac548a5c4974e367ab674050cd0afc0e44a9f1aef6c45` |
-| `agent-work/WORKFLOW-SPEC.md` | `agent-work/WORKFLOW-SPEC.md` | `3d38b27749aa0d5ed4cd751ffe64a4359f4f330a` | `6f902673789f276d93a28676b64221b5a105cbfbf539e76dcf9121629861f50b` |
-| `agent-work/COORDINATOR.md` | `agent-work/COORDINATOR.md` | `3d38b27749aa0d5ed4cd751ffe64a4359f4f330a` | `9123a28cf74160190c761bafba51a37ad226577b0fca5b11e38ed4881177e33d` |
-| `agent-work/RESULT-TEMPLATE.md` | `agent-work/RESULT-TEMPLATE.md` | `3d38b27749aa0d5ed4cd751ffe64a4359f4f330a` | `9c8dd149d8ef51cccffad24b77da746248aa9a739e5cf2a8fdd4b46d92fd585b` |
-| `agent-work/EVIDENCE-MANIFEST.md` | `agent-work/EVIDENCE-MANIFEST.md` | `3d38b27749aa0d5ed4cd751ffe64a4359f4f330a` | `0fd361552cffe2ace79c6163664baaf37a39b9f3041f74ff8442a40e76735c46` |
-| `docs/THREAT-MODEL.md` | `docs/THREAT-MODEL.md` | `3d38b27749aa0d5ed4cd751ffe64a4359f4f330a` | `c95531933c0f4fb0eb6012a4dc7b3a59d4e7c2a3dd906105a2b115686f4eb4ef` |
-| `docs/agent-worktrees.md` | `docs/agent-worktrees.md` | `3d38b27749aa0d5ed4cd751ffe64a4359f4f330a` | `9fb51de1c35e0ad98d00a3ce6a58bb3d66b9f5c351ab0685c1031b55ab9189d1` |
-| `scripts/agent-task.py` | `scripts/agent-task.py` | `3d38b27749aa0d5ed4cd751ffe64a4359f4f330a` | `c7f5e5ed29334f0b991cf183cc5ba9e013bff2b49c099cd2c9d7aa8e09d00655` |
+| `agent-work/README.md` | `agent-work/README.md` | `84d826a40b8f8567439ab15eb270a1a752f92a82` | `bfe51802bb33e9f2a01ac548a5c4974e367ab674050cd0afc0e44a9f1aef6c45` |
+| `agent-work/WORKFLOW-SPEC.md` | `agent-work/WORKFLOW-SPEC.md` | `84d826a40b8f8567439ab15eb270a1a752f92a82` | `7ba454493d6cec691b06c0e6113a0dc5db6705b86b9f1805e919e61b3a8f1ffc` |
+| `agent-work/COORDINATOR.md` | `agent-work/COORDINATOR.md` | `84d826a40b8f8567439ab15eb270a1a752f92a82` | `7a9c98d9ea6dc4686b6743594c8cec3839caa637ff1b960bbaf5f0960a143f04` |
+| `agent-work/RESULT-TEMPLATE.md` | `agent-work/RESULT-TEMPLATE.md` | `84d826a40b8f8567439ab15eb270a1a752f92a82` | `9c8dd149d8ef51cccffad24b77da746248aa9a739e5cf2a8fdd4b46d92fd585b` |
+| `agent-work/EVIDENCE-MANIFEST.md` | `agent-work/EVIDENCE-MANIFEST.md` | `84d826a40b8f8567439ab15eb270a1a752f92a82` | `c43b012044c18058d99c1d5c1b194174c23e5e9a8fcdaf5a8b34a2a2fe514242` |
+| `docs/THREAT-MODEL.md` | `docs/THREAT-MODEL.md` | `84d826a40b8f8567439ab15eb270a1a752f92a82` | `132d933a9e1a48676c0126498daa5b495993253802e57f95afe2be061bf80fb1` |
+| `docs/agent-worktrees.md` | `docs/agent-worktrees.md` | `84d826a40b8f8567439ab15eb270a1a752f92a82` | `9fb51de1c35e0ad98d00a3ce6a58bb3d66b9f5c351ab0685c1031b55ab9189d1` |
+| `scripts/agent-task.py` | `scripts/agent-task.py` | `84d826a40b8f8567439ab15eb270a1a752f92a82` | `67fa523bd62cf21ad53d969460074982baff1f5b5e1312a086b953e0138f4434` |
 
 Why these files:
 
@@ -48,7 +48,21 @@ These are not copies and have no recorded hash: `AGENTS.md` (Workflow's `AGENTS.
 | `scripts/tests/test_agent_workflow.py` | Workflow's regression suite for the helper. The helper is pinned here by SHA-256 to the exact upstream commit, whose own CI runs this suite; re-running it here would test Workflow, not this site. |
 | `.github/workflows/validate.yml` | Runs Workflow's gate. Replaced by this repository's own `validate.yml`, which uses the same action versions. |
 | `.github/workflows/release.yml` | Publishes Workflow releases; not this repository's live change. |
-| `docs/PILOT-HISTORY.md`, `agent-work/pilot-rollback-drill/` | Referenced by Workflow docs but not present in the export, so they could not be copied (see Ambiguities). |
+| `docs/PILOT-HISTORY.md`, `agent-work/pilot-*/` | Workflow's own pilot history and records. They were not in the original export; since alpha.13, Workflow's `docs/ADOPTING.md` lists them as not to be copied, and says references to them in copied files point back to Workflow. |
+| `docs/ADOPTING.md` | New in alpha.13: Workflow's guide for adopters, which it does not list among the files to copy. It is read at the source. |
+
+## Upgrades
+
+**2026-10-14: from `3d38b27` to `v0.1.0-alpha.13`.**
+
+- **Source.** The files were copied from the published release asset `workflow-v0.1.0-alpha.13.zip`, whose SHA-256 was checked on download as e520b61c3c48572b73001d333b2c79499e33b3e5c19f34988d5be2f3e191d5d4. The release tag `v0.1.0-alpha.13` is a lightweight tag at `84d826a40b8f8567439ab15eb270a1a752f92a82`, and every copied file is byte-identical to the file at that commit.
+- **What changed.** Five files changed: `agent-work/WORKFLOW-SPEC.md`, `agent-work/COORDINATOR.md`, `agent-work/EVIDENCE-MANIFEST.md`, `docs/THREAT-MODEL.md` and `scripts/agent-task.py`. Three are byte-identical to the earlier copies: `agent-work/README.md`, `agent-work/RESULT-TEMPLATE.md` and `docs/agent-worktrees.md`. Workflow's `AGENTS.md` did not change between the two commits, so this repository's `AGENTS.md` is unchanged.
+- **Procedure.** Workflow's `docs/ADOPTING.md` section 2: copy from the newer commit, update every row, and review the change like any other.
+- **The ambiguities below, against alpha.13.**
+  - Answered by `docs/ADOPTING.md`: 1, 2, 3, 4, 5, 7, 9, 11, 16, 17, 20 and 21. On 7: the copied threat model still mentions `docs/PILOT-HISTORY.md`, and the guide now says such references point back to Workflow.
+  - Partly answered: 6, where the guide covers local threat models and when a guard review stops, but the copied threat model still describes only Workflow; and 10, where the guide allows exact tags or commit SHAs without choosing.
+  - Not answered: 8, 12, 13, 14, 15, 18 and 19.
+- **Row format.** `docs/ADOPTING.md` shows a three-column provenance row. This repository keeps its four-column form, with the source path, because `scripts/validate.sh` requires it. Hash values for the upgrade are kept out of other table rows, because the gate reads any table row starting with a backtick as a provenance row.
 
 ## Ambiguities
 
