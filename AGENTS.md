@@ -50,7 +50,7 @@ Never commit or place in evidence credentials, bearer tokens, private keys, runt
 
 An adopting repository must define its deployment authority. Workflow v3 records it in the deployment table as authority_remote and authority_ref.
 
-For this repository, the live change is a GitHub Pages deployment of one exact commit on `main`, performed by a manually dispatched GitHub Actions workflow. That deploy workflow does not exist yet; adding it is a reviewed repository change, and every dispatch of it is a live change. The deployment authority is `authority_remote = "origin"`, `authority_ref = "refs/heads/main"`: the site is deployed only from the exact independently reviewed commit at `main`. Changing the repository's GitHub Pages or other GitHub settings is also a live change and needs its own bounded preview and explicit approval.
+For this repository, the live change is a GitHub Pages deployment of one exact commit on `main`, performed by a manually dispatched GitHub Actions workflow. That deploy workflow is `.github/workflows/deploy.yml`; changing it is a reviewed repository change, and every dispatch of it is a live change. The deployment authority is `authority_remote = "origin"`, `authority_ref = "refs/heads/main"`: the site is deployed only from the exact independently reviewed commit at `main`. Changing the repository's GitHub Pages or other GitHub settings is also a live change and needs its own bounded preview and explicit approval.
 
 Deployment must remain pinned to the exact independently reviewed authoritative source. A known additive descendant may wait for final reconciliation only after object, ancestry, and changed-path proof and only when protected deployment inputs are unchanged. Unknown or destructive divergence stops mutation.
 
@@ -59,6 +59,7 @@ Deployment must remain pinned to the exact independently reviewed authoritative 
 These rules were set by the owner. They apply to every file, commit message, branch name, task file, result and evidence record in this repository, not only to the published page.
 
 - **Never name private repositories, hosts, addresses, people or emails.** The only repositories that may be named are the organisation's public repositories. Whether a repository is public is a mutable fact: check it fresh before naming it. Placeholder values in vendored Workflow documentation (loopback and documentation-range addresses, generic names such as `server` or `host`) are not names of real private hosts.
+  - **Commit metadata.** The mandated commit identity and its `Co-Authored-By` and session trailers are exempt from this rule. Everything else in a commit message, and all file content and branch names, stays under it. This is the owner's decision recorded in `ADOPTION.md` (ambiguity 17), written here so reviewers apply it.
 - **The page lists only the organisation's public repositories.**
 - **Plain HTML with inline CSS.** No JavaScript in any form (no `<script>` element, no event-handler attribute, no `javascript:` URL).
 - **No external resources.** The page loads nothing from anywhere: no external stylesheet, font, image, frame, media or other fetched URL.
