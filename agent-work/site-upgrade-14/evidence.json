@@ -1,0 +1,398 @@
+{
+  "workflowVersion": 3,
+  "workflowId": "site-upgrade-14",
+  "records": [
+    {
+      "taskId": "A",
+      "attempt": 1,
+      "role": "implementation",
+      "model": null,
+      "branch": "pilot/site-upgrade-14-impl",
+      "worktree": null,
+      "baseSha": "16c363137b52093fcd014ee00d8c4a8ca570e658",
+      "candidateSha": "dfaa7cb863da02c204b34c4e05d90d9f9660fe97",
+      "deploymentSourceSha": null,
+      "taskStatus": "complete",
+      "readinessVerdict": null,
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [
+        "ADOPTION.md",
+        "AGENTS.md",
+        "agent-work/COORDINATOR.md",
+        "agent-work/RESULT-TEMPLATE.md",
+        "agent-work/WORKFLOW-SPEC.md",
+        "docs/THREAT-MODEL.md",
+        "scripts/agent-task.py"
+      ],
+      "reviewFindingIds": [],
+      "approvalReference": null,
+      "validation": [
+        {
+          "checkId": "validate-ci",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": null,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-upgrade-14/results/A.md"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "agent-work/site-upgrade-14/results/A.md",
+          "sha256": "12a08c4c6afec3e441f7fe083aa7b3e5feac65acb4556f290146f913aa729630"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "67fa523bd62cf21ad53d969460074982baff1f5b5e1312a086b953e0138f4434"
+      }
+    },
+    {
+      "taskId": "B",
+      "attempt": 1,
+      "role": "independent_review",
+      "model": null,
+      "branch": "pilot/site-upgrade-14-records",
+      "worktree": null,
+      "baseSha": "16c363137b52093fcd014ee00d8c4a8ca570e658",
+      "candidateSha": "dfaa7cb863da02c204b34c4e05d90d9f9660fe97",
+      "deploymentSourceSha": "dfaa7cb863da02c204b34c4e05d90d9f9660fe97",
+      "taskStatus": "passed",
+      "readinessVerdict": null,
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [],
+      "reviewFindingIds": [
+        "N1"
+      ],
+      "approvalReference": null,
+      "validation": [],
+      "evidence": [
+        {
+          "path": "agent-work/site-upgrade-14/results/B-1.md",
+          "sha256": "96c2a5ba2b13d50c1da361c22c76d523a1f94647b7689ae0780eea846ca58745"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "67fa523bd62cf21ad53d969460074982baff1f5b5e1312a086b953e0138f4434"
+      }
+    },
+    {
+      "taskId": "P",
+      "attempt": 1,
+      "role": "authority_promotion",
+      "model": null,
+      "branch": "main",
+      "worktree": null,
+      "baseSha": "16c363137b52093fcd014ee00d8c4a8ca570e658",
+      "candidateSha": "dfaa7cb863da02c204b34c4e05d90d9f9660fe97",
+      "deploymentSourceSha": "dfaa7cb863da02c204b34c4e05d90d9f9660fe97",
+      "taskStatus": "complete",
+      "readinessVerdict": null,
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [],
+      "reviewFindingIds": [],
+      "approvalReference": null,
+      "validation": [
+        {
+          "checkId": "ancestry-and-fast-forward",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": 0,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-upgrade-14/results/P.md"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "agent-work/site-upgrade-14/results/P.md",
+          "sha256": "09d165e322cd79834dcffb7c6342d7f90f290a7e3a69da4384d0f1fda32014cb"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "8ec1b22cd97d10e1873ed9dfa83a37fa58f036914452f1af6508564215748f3c"
+      }
+    },
+    {
+      "taskId": "R",
+      "attempt": 1,
+      "role": "release_readiness",
+      "model": null,
+      "branch": "pilot/site-upgrade-14-records",
+      "worktree": null,
+      "baseSha": "dfaa7cb863da02c204b34c4e05d90d9f9660fe97",
+      "candidateSha": "dfaa7cb863da02c204b34c4e05d90d9f9660fe97",
+      "deploymentSourceSha": "dfaa7cb863da02c204b34c4e05d90d9f9660fe97",
+      "taskStatus": "complete",
+      "readinessVerdict": "PASS",
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [],
+      "reviewFindingIds": [],
+      "approvalReference": null,
+      "rollbackArtifact": {
+        "identity": "git:8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+        "provenance": "agent-work/site-upgrade-14/results/R-rollback-v1.md"
+      },
+      "frozenBatch": {
+        "deploymentSourceSha": "dfaa7cb863da02c204b34c4e05d90d9f9660fe97",
+        "deployableArtifactSha256": "1f60283e1c442f0fd8e0015787c84febd2b37eabfe83bc9dbea54e7b345f7a35",
+        "deploymentConfiguration": [
+          {
+            "path": ".github/workflows/deploy.yml",
+            "sha256": "45fd739663807a7cf325c18ecb57b31ff20decf1d4b61a9a05155a12e800073e"
+          },
+          {
+            "path": "agent-work/site-upgrade-14/results/R-dispatch-inputs.json",
+            "sha256": "f6af6225636679fff5e515ff5757aeba168843b5b92eb565d39cbe2332381427"
+          },
+          {
+            "path": "agent-work/site-upgrade-14/results/R-rollback-inputs.json",
+            "sha256": "927b8539ce464e5e7cd1c65b1b1d720f9b2ce972f2f2d39ce52744e8e054650a"
+          },
+          {
+            "path": "agent-work/site-upgrade-14/CONTRACT.md",
+            "sha256": "fac424c931824cb43a1411bc3986ff16cd04b344cf86370d05926f27ad74276a"
+          }
+        ],
+        "validators": [
+          {
+            "path": "scripts/check-site.py",
+            "sha256": "98bd656dd3d8c22341cc18ce6e4e9d209dc418583f1bc1b58e08d18fd5e0a2d5"
+          },
+          {
+            "path": "scripts/projects.txt",
+            "sha256": "4bca413cc05467d6ae84953cda875e77594fb5da866376638925ee254bf949f7"
+          },
+          {
+            "path": "scripts/validate.sh",
+            "sha256": "f9f79783f5b37cf776cad75328a65d954fb814c26f4e2443ad590c5027e80472"
+          },
+          {
+            "path": "scripts/agent-task.py",
+            "sha256": "8ec1b22cd97d10e1873ed9dfa83a37fa58f036914452f1af6508564215748f3c"
+          }
+        ],
+        "rollbackArtifact": {
+          "identity": "git:8377801ebd47f8ce1ec96eac9bd807dc5a876273",
+          "provenance": "agent-work/site-upgrade-14/results/R-rollback-v1.md"
+        },
+        "installedScripts": [],
+        "deploymentTargets": [
+          {
+            "destination": "https://saxton-network.github.io/site",
+            "mode": null
+          }
+        ]
+      },
+      "frozenBatchFingerprint": "82cfa32b80c6ada17cab1535b04c645544c4a3b69a0c1d66575b7b623d39e0cb",
+      "gitDivergence": {
+        "identical": true,
+        "authoritySha": "dfaa7cb863da02c204b34c4e05d90d9f9660fe97",
+        "otherSha": "dfaa7cb863da02c204b34c4e05d90d9f9660fe97"
+      },
+      "validation": [
+        {
+          "checkId": "validate-sh",
+          "inputFingerprint": null,
+          "validatorSha256": "f9f79783f5b37cf776cad75328a65d954fb814c26f4e2443ad590c5027e80472",
+          "exitCode": 0,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-upgrade-14/results/R.md"
+        },
+        {
+          "checkId": "listed-repositories-public",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": 0,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-upgrade-14/results/R.md"
+        },
+        {
+          "checkId": "rollback-guard-local",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": 0,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-upgrade-14/results/R.md"
+        },
+        {
+          "checkId": "records-contain-source",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": 0,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-upgrade-14/results/R.md"
+        },
+        {
+          "checkId": "evidence-access",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": 0,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-upgrade-14/results/R.md"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "agent-work/site-upgrade-14/results/R.md",
+          "sha256": "9c8d37ec854fcc89fbfa8cabd473d7f7da72f8ac7d2646faabb226802421d564"
+        },
+        {
+          "path": "agent-work/site-upgrade-14/results/R-rollback-v1.md",
+          "sha256": "973886961dcc19e0ad84c62d5f4e5d085e0c507733d1b061a2ae5fa3ba611e5e"
+        },
+        {
+          "path": "agent-work/site-upgrade-14/results/R-dispatch-inputs.json",
+          "sha256": "f6af6225636679fff5e515ff5757aeba168843b5b92eb565d39cbe2332381427"
+        },
+        {
+          "path": "agent-work/site-upgrade-14/results/R-rollback-inputs.json",
+          "sha256": "927b8539ce464e5e7cd1c65b1b1d720f9b2ce972f2f2d39ce52744e8e054650a"
+        },
+        {
+          "path": "agent-work/site-upgrade-14/results/R-baseline.json",
+          "sha256": "9c82a29e88806433744fcb0547a6930129987c878350062f4247f69962f98e6e"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "8ec1b22cd97d10e1873ed9dfa83a37fa58f036914452f1af6508564215748f3c"
+      }
+    },
+    {
+      "taskId": "J",
+      "attempt": 1,
+      "role": "live_deployment",
+      "model": null,
+      "branch": "pilot/site-upgrade-14-records",
+      "worktree": null,
+      "baseSha": "dfaa7cb863da02c204b34c4e05d90d9f9660fe97",
+      "candidateSha": "dfaa7cb863da02c204b34c4e05d90d9f9660fe97",
+      "deploymentSourceSha": "dfaa7cb863da02c204b34c4e05d90d9f9660fe97",
+      "taskStatus": "in_progress",
+      "readinessVerdict": null,
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [],
+      "reviewFindingIds": [],
+      "approvalReference": "agent-work/site-upgrade-14/results/J-approval.md",
+      "frozenBatchFingerprint": "82cfa32b80c6ada17cab1535b04c645544c4a3b69a0c1d66575b7b623d39e0cb",
+      "validation": [],
+      "evidence": [
+        {
+          "path": "agent-work/site-upgrade-14/results/J-approval.md",
+          "sha256": "f8bc0264f408b893e4dd826f3c2bf827a6d788ae3c9d89f6cd9ede1496d953fa"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "8ec1b22cd97d10e1873ed9dfa83a37fa58f036914452f1af6508564215748f3c"
+      }
+    },
+    {
+      "taskId": "J",
+      "attempt": 1,
+      "role": "live_deployment",
+      "model": null,
+      "branch": "pilot/site-upgrade-14-records",
+      "worktree": null,
+      "baseSha": "dfaa7cb863da02c204b34c4e05d90d9f9660fe97",
+      "candidateSha": "dfaa7cb863da02c204b34c4e05d90d9f9660fe97",
+      "deploymentSourceSha": "dfaa7cb863da02c204b34c4e05d90d9f9660fe97",
+      "taskStatus": "complete",
+      "readinessVerdict": null,
+      "startedAt": "2026-10-14T08:17:19Z",
+      "completedAt": "2026-10-14T08:18:11Z",
+      "changedPaths": [],
+      "reviewFindingIds": [],
+      "approvalReference": "agent-work/site-upgrade-14/results/J-approval.md",
+      "frozenBatchFingerprint": "82cfa32b80c6ada17cab1535b04c645544c4a3b69a0c1d66575b7b623d39e0cb",
+      "validation": [
+        {
+          "checkId": "runtime-acceptance",
+          "inputFingerprint": "82cfa32b80c6ada17cab1535b04c645544c4a3b69a0c1d66575b7b623d39e0cb",
+          "validatorSha256": null,
+          "exitCode": 0,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-upgrade-14/results/J.md"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "agent-work/site-upgrade-14/results/J.md",
+          "sha256": "11e14a37d945d7fc4d7c439633a7e44342659393b3602032f736225c83be5e7a"
+        },
+        {
+          "path": "agent-work/site-upgrade-14/results/J-approval.md",
+          "sha256": "f8bc0264f408b893e4dd826f3c2bf827a6d788ae3c9d89f6cd9ede1496d953fa"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "8ec1b22cd97d10e1873ed9dfa83a37fa58f036914452f1af6508564215748f3c"
+      },
+      "runtimeAcceptance": "PASS"
+    },
+    {
+      "taskId": "K",
+      "attempt": 1,
+      "role": "final_reconciliation",
+      "model": null,
+      "branch": "pilot/site-upgrade-14-records",
+      "worktree": null,
+      "baseSha": "dfaa7cb863da02c204b34c4e05d90d9f9660fe97",
+      "candidateSha": "dfaa7cb863da02c204b34c4e05d90d9f9660fe97",
+      "deploymentSourceSha": "dfaa7cb863da02c204b34c4e05d90d9f9660fe97",
+      "taskStatus": "complete",
+      "readinessVerdict": null,
+      "startedAt": null,
+      "completedAt": null,
+      "changedPaths": [],
+      "reviewFindingIds": [],
+      "approvalReference": null,
+      "validation": [
+        {
+          "checkId": "refs-and-live-page",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": 0,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-upgrade-14/results/K.md"
+        },
+        {
+          "checkId": "secrets-scan",
+          "inputFingerprint": null,
+          "validatorSha256": null,
+          "exitCode": 0,
+          "verdict": "PASS",
+          "recordedAt": null,
+          "evidencePath": "agent-work/site-upgrade-14/results/K.md"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "agent-work/site-upgrade-14/results/K.md",
+          "sha256": "71ef47757c6733b39b87d4007096c58795c1a319e0d1c9f932ce14f82719e6b1"
+        }
+      ],
+      "helper": {
+        "path": "scripts/agent-task.py",
+        "sha256": "8ec1b22cd97d10e1873ed9dfa83a37fa58f036914452f1af6508564215748f3c"
+      }
+    }
+  ]
+}

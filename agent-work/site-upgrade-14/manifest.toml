@@ -1,0 +1,100 @@
+workflow_version = 3
+phase = "site-upgrade-14"
+title = "Upgrade to Workflow v0.1.0-alpha.14 and put v2 live (Pilot 9)"
+phase_baseline = "16c363137b52093fcd014ee00d8c4a8ca570e658"
+plan = "agent-work/site-upgrade-14/PLAN.md"
+contract = "agent-work/site-upgrade-14/CONTRACT.md"
+
+[workflow]
+mode = "coordinator"
+plan_status = "approved"
+coordinator = "agent-work/COORDINATOR.md"
+auto_dispatch = true
+max_parallel_subagents = 1
+evidence_manifest = "agent-work/site-upgrade-14/evidence.json"
+human_gate_tasks = ["J"]
+terminal_task = "K"
+
+[status]
+A = "complete"
+B = "passed"
+C = "conditional"
+P = "complete"
+R = "complete"
+J = "complete"
+V = "blocked"
+K = "complete"
+
+[tasks.A]
+kind = "implementation"
+name = "Upgrade the vendored Workflow files to v0.1.0-alpha.14"
+file = "agent-work/site-upgrade-14/A-upgrade.md"
+branch = "pilot/site-upgrade-14-impl"
+depends_on = []
+
+[tasks.B]
+kind = "independent_review"
+name = "Review the upgrade, the site rules and the contract"
+file = "agent-work/site-upgrade-14/B-review.md"
+branch = "pilot/site-upgrade-14-records"
+depends_on = ["A"]
+required_status = { A = "complete" }
+rerun_after = "C"
+
+[tasks.C]
+kind = "repair"
+name = "Repair review findings"
+file = "agent-work/site-upgrade-14/C-repair.md"
+branch = "pilot/site-upgrade-14-fix"
+depends_on = ["B"]
+required_status = { B = "findings" }
+conditional = "review_findings_exist"
+
+[tasks.P]
+kind = "authority_promotion"
+name = "Fast-forward main to the exact reviewed commit"
+file = "agent-work/site-upgrade-14/P-promotion.md"
+branch = "main"
+depends_on = ["B"]
+required_status = { B = "passed" }
+
+[tasks.R]
+kind = "release_readiness"
+name = "Prove readiness, including every evidence read, and freeze the batch"
+file = "agent-work/site-upgrade-14/R-readiness.md"
+branch = "pilot/site-upgrade-14-records"
+depends_on = ["B", "P"]
+required_status = { B = "passed" }
+
+[tasks.J]
+kind = "live_deployment"
+name = "Deploy the upgraded main (v2) after owner approval and accept it at runtime"
+file = "agent-work/site-upgrade-14/J-live.md"
+branch = "pilot/site-upgrade-14-records"
+depends_on = ["R"]
+human_gate = "live-change-approval"
+
+[tasks.V]
+kind = "other"
+name = "After a failed deploy: redeploy v1, verify it, and land the records"
+file = "agent-work/site-upgrade-14/V-rollback.md"
+branch = "pilot/site-upgrade-14-records"
+depends_on = ["J"]
+required_status = { J = "failed" }
+
+[tasks.K]
+kind = "final_reconciliation"
+name = "Reconcile refs and the live page, and land the records"
+file = "agent-work/site-upgrade-14/K-reconcile.md"
+branch = "pilot/site-upgrade-14-records"
+depends_on = ["J"]
+
+[deployment]
+implementation_tasks = ["A"]
+review_task = "B"
+authority_task = "P"
+authority_remote = "origin"
+authority_ref = "refs/heads/main"
+readiness_task = "R"
+live_task = "J"
+final_reconciliation_task = "K"
